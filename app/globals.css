@@ -2,25 +2,222 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #12181a;
+
+  /* British racing green, front and centre */
+  --brand-green: #0a3d2a;
+  --brand-green-dark: #04211a;
+  --brand-green-mid: #0f5238;
+  --green-hover: #0f5137;
+
+  /* Jet black header bar */
+  --jet-black: #0a0a0a;
+
+  /* Page surfaces and type on light sections */
+  --ink: #141414;
+  --brand-slate: #5b5b5b;
+  --line: #e6e6e6;
+  --off-white: #f5f6f5;
+  --placeholder: color-mix(in srgb, var(--off-white) 88%, var(--brand-green) 12%);
+
+  /* UK number-plate yellow. The one accent we spend on the reg lookup */
+  --plate-yellow: #ffd200;
+
+  /* Secondary copy */
+  --grey-secondary: #66716f;
+  --grey-border: #dde3e1;
+
+  /* Hero carriageway */
+  --hero-asphalt: #1a1e1c;
+  --hero-asphalt-lit: #2c322f;
+  --hero-lane: rgba(255, 255, 255, 0.52);
+  --hero-haze: #0a3d2a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-green-mid: var(--brand-green-mid);
+  --color-jet-black: var(--jet-black);
+  --color-green-hover: var(--green-hover);
+  --color-ink: var(--ink);
+  --color-brand-slate: var(--brand-slate);
+  --color-line: var(--line);
+  --color-off-white: var(--off-white);
+  --color-placeholder: var(--placeholder);
+  --color-plate-yellow: var(--plate-yellow);
+  --color-grey-secondary: var(--grey-secondary);
+  --color-grey-border: var(--grey-border);
+  --font-display: var(--font-inter);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.hero-road {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-road-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 90% 55% at 50% -10%,
+      rgba(10, 61, 42, 0.14),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 60% 28% at 50% 52%,
+      rgba(10, 61, 42, 0.16),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #f3f6f4 0%,
+      #e7ece9 38%,
+      #d5ddd8 52%,
+      #c5cec8 62%,
+      transparent 76%
+    );
+}
+
+.hero-road-haze {
+  position: absolute;
+  left: 50%;
+  bottom: 34%;
+  width: 120%;
+  height: 10rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--hero-haze);
+  opacity: 0.22;
+  filter: blur(64px);
+}
+
+.hero-road-asphalt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 46%;
+  background: linear-gradient(
+    180deg,
+    rgba(44, 50, 47, 0.55) 0%,
+    var(--hero-asphalt-lit) 12%,
+    var(--hero-asphalt) 100%
+  );
+}
+
+.hero-road-stage {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  width: 240%;
+  height: 52%;
+  transform: translateX(-50%);
+  perspective: 260px;
+  perspective-origin: 50% 0%;
+  transform-style: preserve-3d;
+}
+
+.hero-road-plane {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(66deg);
+  transform-origin: 50% 100%;
+  background: transparent;
+}
+
+.hero-road-markings {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-road-edge {
+  fill: none;
+  stroke: var(--hero-lane);
+  stroke-width: 3;
+  stroke-linecap: square;
+  opacity: 0.55;
+}
+
+.hero-lane-dashes {
+  fill: none;
+  stroke: var(--hero-lane);
+  stroke-width: 5;
+  stroke-linecap: butt;
+  stroke-dasharray: 18 28;
+  animation: hero-lane-travel 12s linear infinite;
+}
+
+.hero-road-ground {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 78%;
+  height: 32%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at 50% 78%,
+    rgba(26, 30, 28, 0.45) 0%,
+    transparent 72%
+  );
+}
+
+@media (max-width: 640px) {
+  .hero-road-asphalt {
+    height: 40%;
+  }
+
+  .hero-road-stage {
+    height: 42%;
+    perspective: 200px;
+  }
+
+  .hero-road-plane {
+    transform: rotateX(58deg);
+  }
+
+  .hero-road-haze {
+    bottom: 30%;
+    height: 7rem;
+    opacity: 0.16;
+  }
+
+  .hero-lane-dashes {
+    animation-duration: 16s;
+  }
+}
+
+@keyframes hero-lane-travel {
+  to {
+    stroke-dashoffset: -92;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-lane-dashes {
+    animation: none;
+  }
 }

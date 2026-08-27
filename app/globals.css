@@ -28,10 +28,10 @@
   --grey-border: #dde3e1;
 
   /* Hero carriageway */
+  --hero-asphalt-dark: #0f1312;
   --hero-asphalt: #1a1e1c;
-  --hero-asphalt-lit: #2c322f;
+  --hero-asphalt-lit: #2a302d;
   --hero-lane: rgba(255, 255, 255, 0.52);
-  --hero-haze: #0a3d2a;
 }
 
 @theme inline {
@@ -52,6 +52,7 @@
   --color-grey-border: var(--grey-border);
   --font-display: var(--font-inter);
   --font-sans: var(--font-inter);
+  --font-numeral: var(--font-bodoni);
 }
 
 html {
@@ -73,41 +74,38 @@ body {
   overflow: hidden;
 }
 
-.hero-road-sky {
+.hero-pillars {
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 90% 55% at 50% -10%,
-      rgba(10, 61, 42, 0.14),
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse 60% 28% at 50% 52%,
-      rgba(10, 61, 42, 0.16),
-      transparent 70%
-    ),
-    linear-gradient(
-      180deg,
-      #f3f6f4 0%,
-      #e7ece9 38%,
-      #d5ddd8 52%,
-      #c5cec8 62%,
-      transparent 76%
-    );
+  top: 1.25rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.hero-road-haze {
-  position: absolute;
-  left: 50%;
-  bottom: 34%;
-  width: 120%;
-  height: 10rem;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: var(--hero-haze);
-  opacity: 0.22;
-  filter: blur(64px);
+.hero-pillars-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-pillar-group {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: hero-pillar-bob 4.5s ease-in-out infinite;
+  animation-delay: var(--pillar-wave-delay, 0s);
+}
+
+@keyframes hero-pillar-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3.2%);
+  }
 }
 
 .hero-road-asphalt {
@@ -115,21 +113,35 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 46%;
+  z-index: 1;
+  height: 40%;
   background: linear-gradient(
     180deg,
-    rgba(44, 50, 47, 0.55) 0%,
-    var(--hero-asphalt-lit) 12%,
-    var(--hero-asphalt) 100%
+    var(--hero-asphalt-dark) 0%,
+    var(--hero-asphalt) 45%,
+    var(--hero-asphalt-lit) 100%
   );
+}
+
+.hero-road-edge-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 40%;
+  pointer-events: none;
 }
 
 .hero-road-stage {
   position: absolute;
   left: 50%;
-  bottom: -10%;
+  bottom: 0;
+  z-index: 2;
   width: 240%;
-  height: 52%;
+  height: 40%;
   transform: translateX(-50%);
   perspective: 260px;
   perspective-origin: 50% 0%;
@@ -150,12 +162,20 @@ body {
   height: 100%;
 }
 
-.hero-road-edge {
+.hero-road-edge-glow {
   fill: none;
-  stroke: var(--hero-lane);
-  stroke-width: 3;
+  stroke: url(#hero-road-edge-glow-fill);
+  vector-effect: non-scaling-stroke;
+  stroke-width: 6;
   stroke-linecap: square;
-  opacity: 0.55;
+}
+
+.hero-road-edge-core {
+  fill: none;
+  stroke: url(#hero-road-edge-stroke);
+  vector-effect: non-scaling-stroke;
+  stroke-width: 2;
+  stroke-linecap: square;
 }
 
 .hero-lane-dashes {
@@ -171,6 +191,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0;
+  z-index: 2;
   width: 78%;
   height: 32%;
   transform: translateX(-50%);
@@ -181,24 +202,34 @@ body {
   );
 }
 
+@media (min-width: 640px) {
+  .hero-pillars {
+    top: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-pillars {
+    top: 2rem;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-road-asphalt {
-    height: 40%;
+    height: 35%;
+  }
+
+  .hero-road-edge-overlay {
+    height: 35%;
   }
 
   .hero-road-stage {
-    height: 42%;
+    height: 35%;
     perspective: 200px;
   }
 
   .hero-road-plane {
     transform: rotateX(58deg);
-  }
-
-  .hero-road-haze {
-    bottom: 30%;
-    height: 7rem;
-    opacity: 0.16;
   }
 
   .hero-lane-dashes {
@@ -218,6 +249,10 @@ body {
   }
 
   .hero-lane-dashes {
+    animation: none;
+  }
+
+  .hero-pillar-group {
     animation: none;
   }
 }

@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { BadgePoundSterling, Car } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Section from "./Section";
+import Section from "@/components/Section";
 import {
   CountUp,
   RevealGroup,
   RevealItem,
-} from "./motion";
+} from "@/components/motion";
 import { createLineVariants } from "@/lib/motion";
 
 const GREEN_ON_DARK = "#1f7a52";
@@ -127,7 +127,7 @@ export default function Testimonials() {
   const lineVariants = createLineVariants(reducedMotion);
 
   return (
-    <Section id="reviews" tone="dark" className="relative overflow-hidden">
+    <Section id="reviews" background="black" className="relative overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div
           className="absolute -bottom-40 -left-32 h-[32rem] w-[32rem] rounded-full opacity-80 blur-3xl"

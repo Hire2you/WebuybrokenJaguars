@@ -1,10 +1,10 @@
 "use client";
 
-import Container from "./Container";
-import HeroForm from "./HeroForm";
+import Container from "@/components/Container";
+import ValuationForm from "@/components/ValuationForm";
 import CarShowcase from "./CarShowcase";
 import HeroRoad from "./HeroRoad";
-import { HeroEntrance, RevealGroup, RevealItem } from "./motion";
+import { HeroEntrance, RevealGroup, RevealItem } from "@/components/motion";
 
 export default function Hero() {
   return (
@@ -35,7 +35,7 @@ export default function Hero() {
             delay={0.2}
             className="relative mt-8 sm:mt-10"
           >
-            <HeroForm />
+            <ValuationForm />
           </HeroEntrance>
 
           <HeroEntrance variant="car-rise" delay={0.35}>

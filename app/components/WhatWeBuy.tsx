@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowRight,
   BatteryLow,
   CircleGauge,
   ClipboardX,
@@ -16,13 +15,15 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import PlaceholderImage from "./PlaceholderImage";
-import Section from "./Section";
+import Button from "@/components/Button";
+import IconSquare from "@/components/IconSquare";
+import Section from "@/components/Section";
+import PlaceholderImage from "@/components/PlaceholderImage";
 import {
   RevealFrom,
   RevealGroup,
   RevealItem,
-} from "./motion";
+} from "@/components/motion";
 
 type Condition = {
   label: string;
@@ -61,15 +62,14 @@ function ConditionCell({ condition }: { condition: Condition }) {
 
   return (
     <div className="motion-card-hover group flex min-h-[4.25rem] items-center gap-3.5 rounded-lg bg-white/[0.04] px-3.5 py-4 transition-colors duration-200 hover:bg-[#1f7a52]/10 motion-reduce:transition-none">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1f7a52] transition-colors duration-200 group-hover:bg-[#2a9d6a] motion-reduce:transition-none">
-        <Icon
-          size={ICON_SIZE}
-          strokeWidth={ICON_STROKE}
-          aria-hidden
-          className="text-white"
-          color="#ffffff"
-        />
-      </span>
+      <IconSquare
+        icon={Icon}
+        variant="solid"
+        size="sm"
+        iconSize={ICON_SIZE}
+        strokeWidth={ICON_STROKE}
+        interactive
+      />
       <span className="text-sm font-medium leading-snug text-white md:text-[0.9375rem]">
         {condition.label}
       </span>
@@ -136,7 +136,7 @@ export default function WhatWeBuy() {
   return (
     <Section
       id="what-we-buy"
-      tone="dark"
+      background="black"
       className="relative overflow-hidden"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -205,18 +205,15 @@ export default function WhatWeBuy() {
             </RevealItem>
 
             <RevealItem>
-              <a
+              <Button
                 href="#valuation"
-                className="motion-btn-primary group mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#1f7a52] px-6 font-sans text-sm font-semibold uppercase tracking-[0.1em] text-white hover:bg-[#2a9d6a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f7a52] motion-reduce:transition-none"
+                variant="primary"
+                primaryTone="accent"
+                showArrow
+                className="mt-8"
               >
                 Get your free valuation
-                <ArrowRight
-                  size={16}
-                  strokeWidth={2.25}
-                  aria-hidden
-                  className="motion-btn-arrow"
-                />
-              </a>
+              </Button>
             </RevealItem>
           </RevealGroup>
         </div>

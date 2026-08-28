@@ -4,9 +4,36 @@ type UkLocationPinProps = {
   className?: string;
 };
 
+type UkMapOutlineProps = {
+  className?: string;
+};
+
 /** Flat-top banner — squarer head, tapered point below. */
 const BADGE_PATH =
   "M18 6H182Q190 6 190 14V136L100 218L10 136V14Q10 6 18 6Z";
+
+export function UkMapOutline({ className = "" }: UkMapOutlineProps) {
+  return (
+    <svg
+      viewBox={`0 0 ${UK_MAP_VIEW_SIZE} ${UK_MAP_VIEW_SIZE}`}
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      {UK_MAP_PATHS.map((path, index) => (
+        <path
+          key={index}
+          d={path}
+          fill="none"
+          stroke="rgba(255,255,255,0.88)"
+          strokeWidth="0.9"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+      ))}
+    </svg>
+  );
+}
 
 export default function UkLocationPin({ className = "" }: UkLocationPinProps) {
   const mapScale = 1.18;

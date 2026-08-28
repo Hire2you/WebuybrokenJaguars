@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import Button from "@/components/Button";
 import Image from "next/image";
-import { Reveal } from "./motion";
+import { Reveal } from "@/components/motion";
 
 export default function ModelsCtaPanel() {
   return (
@@ -28,18 +28,14 @@ export default function ModelsCtaPanel() {
           We buy every model, in any condition. If it wears the leaper, we want
           it.
         </p>
-        <a
+        <Button
           href="#valuation"
-          className="motion-btn-primary group mt-8 inline-flex h-12 w-full max-w-xs items-center justify-center gap-2 rounded-md bg-white px-6 font-sans text-sm font-bold text-brand-green shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none sm:w-auto"
+          variant="inverse"
+          showArrow
+          className="mt-8 w-full max-w-xs sm:w-auto"
         >
           Get your free valuation
-          <ArrowRight
-            size={16}
-            strokeWidth={2.5}
-            aria-hidden
-            className="motion-btn-arrow"
-          />
-        </a>
+        </Button>
       </div>
     </Reveal>
   );

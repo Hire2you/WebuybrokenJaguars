@@ -1,9 +1,10 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import Image from "next/image";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
 import ModelsCtaPanel from "./ModelsCtaPanel";
 import ModelsWeBuyGrid, { ModelsSectionHairline } from "./ModelsWeBuyGrid";
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
 
 type Model = {
   name: string;
@@ -73,7 +74,7 @@ export default function ModelsWeBuy() {
   return (
     <Section
       id="models"
-      tone="muted"
+      background="offwhite"
       className="relative overflow-hidden border-t border-black/5 bg-gradient-to-b from-white to-off-white"
     >
       <ModelsSectionHairline />

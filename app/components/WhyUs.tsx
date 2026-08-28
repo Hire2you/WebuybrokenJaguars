@@ -11,9 +11,10 @@ import {
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import Section from "./Section";
+import Section from "@/components/Section";
+import IconSquare from "@/components/IconSquare";
 import UkLocationPin from "./UkLocationPin";
-import { RevealGroup, RevealItem } from "./motion";
+import { RevealGroup, RevealItem } from "@/components/motion";
 import {
   EASE,
   REVEAL_DURATION,
@@ -68,15 +69,12 @@ function BenefitRow({ benefit }: { benefit: Benefit }) {
 
   return (
     <div className="flex items-center gap-4 border-b border-black/[0.08] py-5 last:border-b-0 lg:py-6 xl:[&:nth-child(5)]:border-b-0 xl:[&:nth-child(6)]:border-b-0">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-green/10">
-        <Icon
-          size={ICON_SIZE}
-          strokeWidth={ICON_STROKE}
-          aria-hidden
-          className="text-brand-green"
-          color="var(--brand-green)"
-        />
-      </span>
+      <IconSquare
+        icon={Icon}
+        variant="light"
+        iconSize={ICON_SIZE}
+        strokeWidth={ICON_STROKE}
+      />
       <div className="min-w-0">
         <h3 className="text-base font-semibold tracking-tight text-ink md:text-[1.05rem]">
           {benefit.title}

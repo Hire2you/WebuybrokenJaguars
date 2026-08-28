@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FOOTER_LINKS } from "./navLinks";
 import {
   SITE_EMAIL,
@@ -32,12 +33,12 @@ export default function Footer() {
           <ul className="mt-4 space-y-2">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="motion-link-underline text-sm text-white/80 transition-colors hover:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

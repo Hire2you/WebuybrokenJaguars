@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion } from "motion/react";
-import PlaceholderImage from "./PlaceholderImage";
+import PlaceholderImage from "@/components/PlaceholderImage";
 import {
   RevealGroup,
   RevealItem,
   RevealLine,
-} from "./motion";
+} from "@/components/motion";
 import {
   createLineVariants,
   createSettleImageVariants,

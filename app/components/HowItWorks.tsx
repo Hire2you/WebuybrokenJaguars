@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Section from "./Section";
-import SectionHeading from "./SectionHeading";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
 import {
   RevealGroup,
   RevealItem,
   RevealNumeral,
   SettleImage,
-} from "./motion";
+} from "@/components/motion";
 
 const STEPS = [
   {
@@ -33,7 +33,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <Section id="how-it-works" tone="white">
+    <Section id="how-it-works" background="white">
       <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
         <div className="flex min-w-0 flex-col">
           <SectionHeading

@@ -1,9 +1,9 @@
 "use client";
 
-import HeroForm from "./HeroForm";
+import ValuationForm from "./ValuationForm";
 import { Reveal, RevealGroup, RevealItem } from "./motion";
 
-export default function FinalCTA() {
+export default function CTAband() {
   return (
     <section id="valuation" className="scroll-mt-28 bg-jet-black py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6 text-center">
@@ -20,7 +20,7 @@ export default function FinalCTA() {
           </RevealItem>
         </RevealGroup>
         <Reveal className="mt-10">
-          <HeroForm />
+          <ValuationForm />
         </Reveal>
       </div>
     </section>

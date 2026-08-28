@@ -61,7 +61,7 @@ function useRevealDistance() {
   return { y, x, reducedMotion };
 }
 
-type TriggerMode = "viewport" | "mount";
+export type TriggerMode = "viewport" | "mount";
 
 type RevealProps = HTMLMotionProps<"div"> & {
   children: ReactNode;

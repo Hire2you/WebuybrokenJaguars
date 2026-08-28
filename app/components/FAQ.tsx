@@ -1,14 +1,16 @@
 "use client";
 
-import { ArrowRight, Phone } from "lucide-react";
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from "./siteContact";
+import { Phone } from "lucide-react";
+import Button from "@/components/Button";
+import IconSquare from "@/components/IconSquare";
+import Section from "@/components/Section";
+import { ChevronDownIcon } from "@/components/icons";
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from "@/components/siteContact";
 import { useId, useState } from "react";
-import { ChevronDownIcon } from "./icons";
-import Section from "./Section";
 import {
   RevealGroup,
   RevealItem,
-} from "./motion";
+} from "@/components/motion";
 import { useReducedMotion } from "motion/react";
 
 const FAQS = [
@@ -142,7 +144,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section id="faq" tone="muted">
+    <Section id="faq" background="offwhite">
       <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-14 xl:gap-16">
         <aside className="min-w-0 lg:sticky lg:top-28 lg:self-start">
           <RevealGroup>
@@ -185,14 +187,7 @@ export default function FAQ() {
 
                 <div className="relative">
                   <div className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/15">
-                      <Phone
-                        size={22}
-                        strokeWidth={2.25}
-                        aria-hidden
-                        className="text-white"
-                      />
-                    </span>
+                    <IconSquare icon={Phone} variant="inverse" iconSize={22} />
                     <div className="min-w-0">
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
                         Call us
@@ -209,18 +204,15 @@ export default function FAQ() {
                     </div>
                   </div>
 
-                  <a
+                  <Button
                     href="#valuation"
-                    className="motion-btn-primary group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-5 font-sans text-sm font-bold text-brand-green shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
+                    variant="inverse"
+                    fullWidth
+                    showArrow
+                    className="mt-6 px-5"
                   >
                     Get your free valuation
-                    <ArrowRight
-                      size={16}
-                      strokeWidth={2.5}
-                      aria-hidden
-                      className="motion-btn-arrow"
-                    />
-                  </a>
+                  </Button>
                 </div>
               </div>
             </RevealItem>

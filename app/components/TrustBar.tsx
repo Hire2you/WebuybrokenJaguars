@@ -1,7 +1,7 @@
 "use client";
 
-import { CheckIcon } from "./icons";
-import { CountUp, RevealGroup, RevealItem } from "./motion";
+import { CheckIcon } from "@/components/icons";
+import { CountUp, RevealGroup, RevealItem } from "@/components/motion";
 import { parseCountValue } from "@/lib/motion";
 
 const POINTS = [

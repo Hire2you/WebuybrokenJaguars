@@ -80,7 +80,7 @@ export default function HeroForm() {
 
         <button
           type="submit"
-          className="group mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-md bg-brand-green font-sans text-lg font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-brand-green-mid focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green-dark"
+          className="motion-btn-primary group mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-md bg-brand-green font-sans text-lg font-semibold uppercase tracking-[0.1em] text-white hover:bg-brand-green-mid focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green-dark"
         >
           Next
           <svg
@@ -89,7 +89,7 @@ export default function HeroForm() {
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"
-            className="transition-transform group-hover:translate-x-0.5"
+            className="motion-btn-arrow"
           >
             <path
               d="M4 12h16m0 0-6-6m6 6-6 6"

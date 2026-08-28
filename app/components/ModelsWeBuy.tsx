@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import Image from "next/image";
-import PlaceholderImage from "./PlaceholderImage";
+import ModelsCtaPanel from "./ModelsCtaPanel";
+import ModelsWeBuyGrid, { ModelsSectionHairline } from "./ModelsWeBuyGrid";
 import Section from "./Section";
 import SectionHeading from "./SectionHeading";
 
@@ -63,83 +63,37 @@ function modelAlt(name: string): string {
 }
 
 const catalog = models.map((model) => ({
-  ...model,
+  name: model.name,
+  bodyStyle: model.bodyStyle,
   imageSrc: resolveModelSrc(model.src),
   alt: modelAlt(model.name),
 }));
 
-type ModelCardProps = {
-  name: string;
-  bodyStyle: string;
-  alt: string;
-  imageSrc: string | null;
-};
-
-function ModelCard({ name, bodyStyle, alt, imageSrc }: ModelCardProps) {
-  return (
-    <article className="group relative h-full overflow-hidden rounded-2xl bg-jet-black shadow-[0_16px_36px_-22px_rgba(10,10,10,0.75)] ring-1 ring-white/5 transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_28px_44px_-20px_rgba(10,10,10,0.9)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-      {imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt={alt}
-          fill
-          sizes="(max-width: 419px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
-          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-        />
-      ) : (
-        <PlaceholderImage
-          label={alt}
-          aspectRatio="5/4"
-          className="absolute inset-0 h-full w-full rounded-none ring-0"
-        />
-      )}
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/45 to-transparent"
-      />
-
-      <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white">
-          {bodyStyle}
-        </p>
-        <h3 className="mt-1 text-lg font-bold tracking-tight text-white md:text-xl">
-          {name}
-        </h3>
-        <span
-          aria-hidden="true"
-          className="mt-3 block h-px w-8 origin-left bg-[#1f7a52] transition-all duration-500 ease-out group-hover:w-16 motion-reduce:transition-none"
-        />
-      </div>
-    </article>
-  );
-}
-
 export default function ModelsWeBuy() {
   return (
-    <Section id="models" tone="muted">
+    <Section
+      id="models"
+      tone="muted"
+      className="relative overflow-hidden border-t border-black/5 bg-gradient-to-b from-white to-off-white"
+    >
+      <ModelsSectionHairline />
+
       <SectionHeading
         eyebrow="EVERY MODEL"
         title="The Jaguars we buy"
         intro="We purchase every model, from saloons to sports cars and SUVs."
       />
 
-      <ul className="mt-12 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
-        {catalog.map((model) => (
-          <li key={model.name} className="aspect-[5/4]">
-            <ModelCard
-              name={model.name}
-              bodyStyle={model.bodyStyle}
-              alt={model.alt}
-              imageSrc={model.imageSrc}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="relative mt-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[125%] w-[125%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(10,61,42,0.05)_0%,transparent_68%)]"
+        />
 
-      <p className="mx-auto mt-12 max-w-2xl text-center text-base text-brand-slate">
-        Do not see yours? Get in touch, we buy them all.
-      </p>
+        <ModelsWeBuyGrid catalog={catalog} />
+      </div>
+
+      <ModelsCtaPanel />
     </Section>
   );
 }

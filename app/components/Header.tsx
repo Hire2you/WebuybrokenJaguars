@@ -97,7 +97,7 @@ export default function Header() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-2.5 text-sm font-medium text-white transition-colors hover:text-brand-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow"
+                    className="motion-link-underline block py-2.5 text-sm font-medium text-white transition-colors hover:text-brand-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow"
                   >
                     {link.label}
                   </a>

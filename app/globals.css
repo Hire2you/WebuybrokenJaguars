@@ -90,24 +90,6 @@ body {
   height: 100%;
 }
 
-.hero-pillar-group {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  animation: hero-pillar-bob 4.5s ease-in-out infinite;
-  animation-delay: var(--pillar-wave-delay, 0s);
-}
-
-@keyframes hero-pillar-bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-3.2%);
-  }
-}
-
 .hero-road-asphalt {
   position: absolute;
   right: 0;
@@ -215,6 +197,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  .hero-pillars {
+    top: 40%;
+  }
+
   .hero-road-asphalt {
     height: 35%;
   }
@@ -252,7 +238,97 @@ body {
     animation: none;
   }
 
-  .hero-pillar-group {
-    animation: none;
+  .motion-btn-primary:hover,
+  .motion-card-hover:hover,
+  .motion-card-hover:hover .motion-img-zoom,
+  .motion-btn-primary:hover .motion-btn-arrow {
+    transform: none;
   }
+
+  .motion-link-underline::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Shared entrance + hover motion utilities */
+.motion-ease {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-btn-primary {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px -8px rgba(10, 61, 42, 0.45),
+    0 0 0 1px rgba(31, 122, 82, 0.12);
+}
+
+.motion-btn-arrow {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-btn-primary:hover .motion-btn-arrow {
+  transform: translateX(4px);
+}
+
+.motion-card-hover {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-card-hover:hover {
+  transform: translateY(-4px);
+}
+
+.motion-accent-line {
+  transition:
+    width 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-card-hover:hover .motion-accent-line {
+  width: 4rem;
+  background-color: #2a9d6a;
+}
+
+.motion-img-zoom {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-card-hover:hover .motion-img-zoom {
+  transform: scale(1.05);
+}
+
+.motion-link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.motion-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--brand-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-link-underline:hover::after,
+.motion-link-underline:focus-visible::after {
+  transform: scaleX(1);
 }

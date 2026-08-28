@@ -1,5 +1,11 @@
 import Image from "next/image";
 import { FOOTER_LINKS } from "./navLinks";
+import {
+  SITE_EMAIL,
+  SITE_OPENING_HOURS,
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_TEL,
+} from "./siteContact";
 
 export default function Footer() {
   return (
@@ -20,7 +26,7 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Footer">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#3dba7a]">
             Quick links
           </h2>
           <ul className="mt-4 space-y-2">
@@ -28,7 +34,7 @@ export default function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-white/80 transition-colors hover:text-white"
+                  className="motion-link-underline text-sm text-white/80 transition-colors hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -38,29 +44,43 @@ export default function Footer() {
         </nav>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#3dba7a]">
             Contact
           </h2>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
-            <li>Phone [placeholder number]</li>
-            <li>Email [placeholder email]</li>
-            <li>Hours [placeholder]</li>
+            <li>
+              <a
+                href={`tel:${SITE_PHONE_TEL}`}
+                className="motion-link-underline transition-colors hover:text-white"
+              >
+                {SITE_PHONE_DISPLAY}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${SITE_EMAIL}`}
+                className="motion-link-underline transition-colors hover:text-white"
+              >
+                {SITE_EMAIL}
+              </a>
+            </li>
+            <li>{SITE_OPENING_HOURS}</li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#3dba7a]">
             Coverage
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-white/80">
-            DVLA registered. Buying Jaguars across mainland UK.
+            Buying Jaguars across mainland UK.
           </p>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs leading-relaxed text-white/55 md:flex-row md:items-center md:justify-between">
-          <p>© [year] We Buy Broken Jaguars. All rights reserved.</p>
+          <p>© 2025 We Buy Broken Jaguars. All rights reserved.</p>
           <p>
             We Buy Broken Jaguars is a trading name of [Company Ltd].
             [Placeholder company reg and address].

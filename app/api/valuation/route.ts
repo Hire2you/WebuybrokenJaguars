@@ -46,6 +46,17 @@ export async function POST(request: Request) {
       );
     }
 
+    if (message.includes("domain is not verified")) {
+      return Response.json(
+        {
+          ok: false,
+          error:
+            "Our email system is still being set up. Please call us and we will help with your valuation.",
+        },
+        { status: 503 },
+      );
+    }
+
     return Response.json(
       { ok: false, error: "Unable to send your valuation. Please try again." },
       { status: 500 },

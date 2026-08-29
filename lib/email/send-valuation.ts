@@ -51,11 +51,14 @@ export async function sendValuationEmails(values: ValuationSubmission) {
   });
 
   if (confirmationResult.error) {
-    throw new Error(confirmationResult.error.message);
+    console.error(
+      "Valuation confirmation email failed:",
+      confirmationResult.error.message,
+    );
   }
 
   return {
     leadId: leadResult.data?.id,
-    confirmationId: confirmationResult.data?.id,
+    confirmationId: confirmationResult.data?.id ?? null,
   };
 }

@@ -43,35 +43,37 @@ function getFromAddress() {
   return configured;
 }
 
-function getToAddress() {
+function getLeadRecipients(): string[] {
   const configured = process.env.RESEND_TO_EMAIL?.trim();
-  const defaultTo = SITE_EMAIL;
+  const primary = configured
+    ? extractEmailAddress(configured).toLowerCase()
+    : SITE_EMAIL;
+  const recipients = [primary];
 
-  if (!configured) {
-    return defaultTo;
+  const backup = process.env.RESEND_BACKUP_TO_EMAIL?.trim();
+  if (backup) {
+    const backupEmail = extractEmailAddress(backup).toLowerCase();
+    if (!recipients.includes(backupEmail)) {
+      recipients.push(backupEmail);
+    }
   }
 
-  const email = extractEmailAddress(configured).toLowerCase();
-  const domain = email.split("@")[1];
+  return recipients;
+}
 
-  if (domain !== VERIFIED_SEND_DOMAIN) {
-    console.warn(
-      `RESEND_TO_EMAIL uses "${email}" but lead notifications should go to @${VERIFIED_SEND_DOMAIN}. Using ${defaultTo}.`,
-    );
-    return defaultTo;
-  }
-
-  return configured;
+function getLeadReplyToAddress() {
+  return SITE_EMAIL;
 }
 
 export async function sendValuationEmails(values: ValuationSubmission) {
   const resend = getResendClient();
   const from = getFromAddress();
-  const to = getToAddress();
+  const leadRecipients = getLeadRecipients();
+  const leadReplyTo = getLeadReplyToAddress();
 
   const leadResult = await resend.emails.send({
     from,
-    to,
+    to: leadRecipients,
     replyTo: values.email,
     subject: `New valuation: ${values.reg} — ${values.make} ${values.model}`,
     html: buildLeadEmailHtml(values),
@@ -84,7 +86,7 @@ export async function sendValuationEmails(values: ValuationSubmission) {
   const confirmationResult = await resend.emails.send({
     from,
     to: values.email,
-    replyTo: to,
+    replyTo: leadReplyTo,
     subject: "We received your Jaguar valuation request",
     html: buildConfirmationEmailHtml(values),
   });

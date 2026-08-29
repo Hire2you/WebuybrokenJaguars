@@ -6,6 +6,10 @@ import {
 } from "@/lib/email/valuation-email-templates";
 import type { ValuationSubmission } from "@/lib/valuation";
 
+const VERIFIED_SEND_DOMAIN = "webuybrokenjaguars.com";
+const DEFAULT_FROM =
+  "We Buy Broken Jaguars <valuations@webuybrokenjaguars.com>";
+
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -14,11 +18,29 @@ function getResendClient() {
   return new Resend(apiKey);
 }
 
+function extractEmailAddress(from: string) {
+  const match = from.match(/<([^>]+)>/);
+  return (match?.[1] ?? from).trim();
+}
+
 function getFromAddress() {
-  return (
-    process.env.RESEND_FROM_EMAIL ??
-    "We Buy Broken Jaguars <valuations@webuybrokenjaguars.com>"
-  );
+  const configured = process.env.RESEND_FROM_EMAIL?.trim();
+
+  if (!configured) {
+    return DEFAULT_FROM;
+  }
+
+  const email = extractEmailAddress(configured).toLowerCase();
+  const domain = email.split("@")[1];
+
+  if (domain !== VERIFIED_SEND_DOMAIN) {
+    console.warn(
+      `RESEND_FROM_EMAIL uses "${email}" but only @${VERIFIED_SEND_DOMAIN} is verified. Using default sender.`,
+    );
+    return DEFAULT_FROM;
+  }
+
+  return configured;
 }
 
 function getToAddress() {

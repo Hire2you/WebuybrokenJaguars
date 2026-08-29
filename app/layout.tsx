@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ScrollRestoration from "@/components/ScrollRestoration";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.className} ${inter.variable} ${bodoni.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <ScrollRestoration />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

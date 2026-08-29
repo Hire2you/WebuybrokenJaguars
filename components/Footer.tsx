@@ -80,12 +80,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 text-xs leading-relaxed text-white/55 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-xs leading-relaxed text-white/55">
           <p>© 2025 We Buy Broken Jaguars. All rights reserved.</p>
-          <p>
-            We Buy Broken Jaguars is a trading name of [Company Ltd].
-            [Placeholder company reg and address].
-          </p>
         </div>
       </div>
     </footer>

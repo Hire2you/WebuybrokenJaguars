@@ -8,7 +8,10 @@ import { HeroEntrance, RevealGroup, RevealItem } from "@/components/motion";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f3f6f4]">
+    <section
+      id="valuation"
+      className="relative overflow-hidden scroll-mt-28 bg-[#f3f6f4]"
+    >
       <HeroRoad />
 
       <Container>

@@ -5,7 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from "./motion";
 
 export default function CTAband() {
   return (
-    <section id="valuation" className="scroll-mt-28 bg-jet-black py-20 md:py-28">
+    <section className="bg-jet-black py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6 text-center">
         <RevealGroup>
           <RevealItem>

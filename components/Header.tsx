@@ -7,6 +7,16 @@ import { usePathname } from "next/navigation";
 import Container from "./Container";
 import { HEADER_LINKS } from "./navLinks";
 
+function QuotePromiseBadge() {
+  return (
+    <div className="flex min-w-0 flex-1 justify-center md:hidden">
+      <p className="max-w-[9.75rem] rounded-md border border-white bg-[#171717] px-2 py-1.5 text-center text-[11px] font-bold leading-[1.15] text-white sm:max-w-[12rem] sm:px-3 sm:text-xs">
+        We Will Beat Any Genuine Quote
+      </p>
+    </div>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -31,13 +41,13 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-jet-black py-5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-jet-black py-3 md:py-5">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
           <Link
             href="/"
             aria-label="We Buy Broken Jaguars — home"
-            className="flex items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow"
+            className="flex shrink-0 items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow"
           >
             <Image
               src="/logo.webp"
@@ -45,9 +55,11 @@ export default function Header() {
               width={1000}
               height={500}
               priority
-              className="h-16 w-auto sm:h-20"
+              className="h-12 w-auto sm:h-16 md:h-20"
             />
           </Link>
+
+          <QuotePromiseBadge />
 
           <button
             type="button"

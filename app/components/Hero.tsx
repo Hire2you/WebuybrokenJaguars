@@ -2,9 +2,34 @@
 
 import Container from "@/components/Container";
 import ValuationForm from "@/components/ValuationForm";
+import {
+  SITE_PHONE_DISPLAY,
+  SITE_PHONE_TEL,
+} from "@/components/siteContact";
 import CarShowcase from "./CarShowcase";
 import HeroRoad from "./HeroRoad";
 import { HeroEntrance, RevealGroup, RevealItem } from "@/components/motion";
+
+function CallNowBar() {
+  const compactNumber = SITE_PHONE_DISPLAY.replace(/\s/g, "");
+
+  return (
+    <a
+      href={`tel:${SITE_PHONE_TEL}`}
+      className="motion-btn-primary flex w-full items-center justify-between gap-3 rounded-xl bg-brand-green px-4 py-4 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow md:hidden"
+    >
+      <span aria-hidden="true" className="text-4xl leading-none">
+        ☎️
+      </span>
+      <span className="text-center text-sm font-bold uppercase tracking-[0.12em]">
+        Call now: {compactNumber}
+      </span>
+      <span aria-hidden="true" className="text-4xl leading-none">
+        ☎️
+      </span>
+    </a>
+  );
+}
 
 export default function Hero() {
   return (
@@ -15,10 +40,12 @@ export default function Hero() {
       <HeroRoad />
 
       <Container>
-        <div className="relative z-10 pb-4 pt-10 sm:pb-6 sm:pt-8 lg:pt-12">
+        <div className="relative z-10 pb-4 pt-5 sm:pb-6 sm:pt-8 lg:pt-12">
+          <CallNowBar />
+
           <RevealGroup
             trigger="mount"
-            className="relative mx-auto max-w-3xl text-center"
+            className="relative mx-auto mt-6 max-w-3xl text-center md:mt-0"
           >
             <RevealItem>
               <h1 className="font-sans text-4xl font-bold uppercase leading-[1.05] tracking-tight text-brand-green sm:text-5xl lg:text-6xl">

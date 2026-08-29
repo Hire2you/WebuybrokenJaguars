@@ -44,7 +44,24 @@ function getFromAddress() {
 }
 
 function getToAddress() {
-  return process.env.RESEND_TO_EMAIL ?? SITE_EMAIL;
+  const configured = process.env.RESEND_TO_EMAIL?.trim();
+  const defaultTo = SITE_EMAIL;
+
+  if (!configured) {
+    return defaultTo;
+  }
+
+  const email = extractEmailAddress(configured).toLowerCase();
+  const domain = email.split("@")[1];
+
+  if (domain !== VERIFIED_SEND_DOMAIN) {
+    console.warn(
+      `RESEND_TO_EMAIL uses "${email}" but lead notifications should go to @${VERIFIED_SEND_DOMAIN}. Using ${defaultTo}.`,
+    );
+    return defaultTo;
+  }
+
+  return configured;
 }
 
 export async function sendValuationEmails(values: ValuationSubmission) {

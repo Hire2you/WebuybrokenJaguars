@@ -21,7 +21,7 @@ const BRAND = {
 } as const;
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://webuybrokenjaguars.co.uk";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://webuybrokenjaguars.com";
 
 export function escapeHtml(value: string) {
   return value
@@ -206,7 +206,7 @@ export function buildLeadEmailHtml(values: ValuationSubmission) {
     ${emailHeader()}
     ${emailHero(
       "New valuation request",
-      `Submitted ${submittedAt} via webuybrokenjaguars.co.uk`,
+      `Submitted ${submittedAt} via webuybrokenjaguars.com`,
     )}
     <tr>
       <td style="background-color:${BRAND.white};padding:28px;border-left:2px solid ${BRAND.green};border-right:2px solid ${BRAND.green};">

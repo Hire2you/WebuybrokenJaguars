@@ -17,7 +17,7 @@ function getResendClient() {
 function getFromAddress() {
   return (
     process.env.RESEND_FROM_EMAIL ??
-    "We Buy Broken Jaguars <valuations@webuybrokenjaguars.co.uk>"
+    "We Buy Broken Jaguars <valuations@webuybrokenjaguars.com>"
   );
 }
 

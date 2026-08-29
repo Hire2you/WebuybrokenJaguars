@@ -1,12 +1,11 @@
 export const VALUATION_CONDITIONS = [
-  "Running",
-  "Non-running",
-  "Accident damaged",
-  "Engine fault",
-  "Gearbox fault",
-  "MOT failure",
-  "Cat S / Cat N",
-  "Other",
+  "BRAND NEW",
+  "GOOD CONDITION",
+  "AGE RELATED MARKS",
+  "BAD CONDITION",
+  "MOT FAILURE",
+  "NON-RUNNING",
+  "CRASH DAMAGED",
 ] as const;
 
 export type ValuationSubmission = {

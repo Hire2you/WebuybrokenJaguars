@@ -6,27 +6,16 @@ import {
   useId,
   useRef,
   useState,
-  type ChangeEvent,
   type FormEvent,
 } from "react";
 import Button from "./Button";
+import { VALUATION_CONDITIONS } from "@/lib/valuation";
 
 const TRUST_POINTS = [
   "Free nationwide collection",
   "Payment same day",
   "No obligation",
 ];
-
-const CONDITIONS = [
-  "Running",
-  "Non-running",
-  "Accident damaged",
-  "Engine fault",
-  "Gearbox fault",
-  "MOT failure",
-  "Cat S / Cat N",
-  "Other",
-] as const;
 
 const STEP_TITLES = {
   1: "Registration, mileage and postcode",
@@ -266,6 +255,95 @@ function StepOneFields({ ids, values, errors, onChange }: FieldProps) {
   );
 }
 
+function ConditionSelect({
+  id,
+  value,
+  error,
+  onChange,
+}: {
+  id: string;
+  value: string;
+  error?: string;
+  onChange: (value: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handlePointerDown(event: MouseEvent) {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        id={id}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${id}-error` : undefined}
+        onClick={() => setOpen((current) => !current)}
+        className={`h-14 w-full border-2 border-black bg-white px-4 text-center font-sans outline-none focus-visible:ring-2 focus-visible:ring-[#0056b3] focus-visible:ring-offset-2 ${
+          error ? "border-red-700" : ""
+        } ${
+          value
+            ? "text-lg font-semibold uppercase tracking-wide text-foreground sm:text-xl"
+            : "text-sm font-semibold uppercase tracking-wide text-grey-secondary"
+        }`}
+      >
+        <span className="flex items-center justify-between gap-2">
+          <span className="flex-1 text-center">{value || "CONDITION"}</span>
+          <ChevronDown
+            size={18}
+            strokeWidth={2.25}
+            aria-hidden
+            className={`shrink-0 text-black transition-transform ${open ? "rotate-180" : ""}`}
+          />
+        </span>
+      </button>
+
+      {open ? (
+        <ul
+          role="listbox"
+          aria-labelledby={id}
+          className="absolute z-30 mt-1 w-full overflow-hidden border-2 border-black bg-white shadow-[0_12px_28px_-8px_rgba(0,0,0,0.35)]"
+        >
+          {VALUATION_CONDITIONS.map((condition) => {
+            const selected = value === condition;
+            return (
+              <li
+                key={condition}
+                role="option"
+                aria-selected={selected}
+                onClick={() => {
+                  onChange(condition);
+                  setOpen(false);
+                }}
+                className={`cursor-pointer px-4 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-colors sm:text-base ${
+                  selected
+                    ? "bg-[#0056b3] text-white"
+                    : "text-black hover:bg-[#0056b3] hover:text-white"
+                }`}
+              >
+                {condition}
+              </li>
+            );
+          })}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
 function StepTwoFields({ ids, values, errors, onChange }: FieldProps) {
   return (
     <>
@@ -313,41 +391,12 @@ function StepTwoFields({ ids, values, errors, onChange }: FieldProps) {
         <label htmlFor={ids.condition} className="sr-only">
           Condition
         </label>
-        <div className="relative">
-          <select
-            id={ids.condition}
-            name="condition"
-            required
-            aria-invalid={Boolean(errors.condition)}
-            aria-describedby={
-              errors.condition ? `${ids.condition}-error` : undefined
-            }
-            value={values.condition}
-            onChange={(event: ChangeEvent<HTMLSelectElement>) =>
-              onChange("condition", event.target.value)
-            }
-            className={`h-14 w-full appearance-none rounded-md border bg-white py-0 pl-4 pr-10 text-center font-sans outline-none focus:ring-2 focus:ring-brand-green/30 ${borderClass(Boolean(errors.condition))} ${
-              values.condition
-                ? "text-lg font-semibold text-foreground sm:text-xl"
-                : "text-sm font-medium tracking-normal text-grey-secondary"
-            }`}
-          >
-            <option value="" disabled>
-              CONDITION
-            </option>
-            {CONDITIONS.map((condition) => (
-              <option key={condition} value={condition}>
-                {condition}
-              </option>
-            ))}
-          </select>
-          <ChevronDown
-            size={18}
-            strokeWidth={2.25}
-            aria-hidden
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-grey-secondary"
-          />
-        </div>
+        <ConditionSelect
+          id={ids.condition}
+          value={values.condition}
+          error={errors.condition}
+          onChange={(condition) => onChange("condition", condition)}
+        />
         <FieldError
           id={`${ids.condition}-error`}
           message={errors.condition}

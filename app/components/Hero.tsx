@@ -16,15 +16,18 @@ function CallNowBar() {
   return (
     <a
       href={`tel:${SITE_PHONE_TEL}`}
-      className="motion-btn-primary flex w-full items-center justify-between gap-3 rounded-xl bg-brand-green px-4 py-4 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow md:hidden"
+      className="motion-btn-primary flex w-full items-center justify-between gap-2 rounded-xl bg-brand-green px-3 py-4 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plate-yellow md:hidden"
     >
-      <span aria-hidden="true" className="text-4xl leading-none">
+      <span aria-hidden="true" className="phone-ring inline-block text-4xl leading-none">
         ☎️
       </span>
-      <span className="text-center text-sm font-bold uppercase tracking-[0.12em]">
+      <span className="min-w-0 text-center text-base font-bold uppercase tracking-[0.06em] sm:text-lg">
         Call now: {compactNumber}
       </span>
-      <span aria-hidden="true" className="text-4xl leading-none">
+      <span
+        aria-hidden="true"
+        className="phone-ring phone-ring-delayed inline-block text-4xl leading-none"
+      >
         ☎️
       </span>
     </a>

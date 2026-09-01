@@ -9,9 +9,11 @@ import { HEADER_LINKS } from "./navLinks";
 
 function QuotePromiseBadge() {
   return (
-    <div className="flex min-w-0 flex-1 justify-center md:hidden">
-      <p className="max-w-[9.75rem] rounded-md border border-white bg-[#171717] px-2 py-1.5 text-center text-[11px] font-bold leading-[1.15] text-white sm:max-w-[12rem] sm:px-3 sm:text-xs">
-        We Will Beat Any Genuine Quote
+    <div className="flex min-w-0 flex-1 justify-center px-0.5 md:hidden">
+      <p className="w-full rounded-lg border-2 border-white bg-[#171717] px-2.5 py-3 text-center text-[15px] font-extrabold leading-snug text-white sm:px-4 sm:text-base">
+        We Will Beat Any
+        <br />
+        Genuine Quote
       </p>
     </div>
   );
@@ -55,7 +57,7 @@ export default function Header() {
               width={1000}
               height={500}
               priority
-              className="h-12 w-auto sm:h-16 md:h-20"
+              className="h-10 w-auto sm:h-16 md:h-20"
             />
           </Link>
 

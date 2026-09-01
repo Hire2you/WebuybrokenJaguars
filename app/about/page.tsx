@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import {
   BadgePoundSterling,
@@ -31,11 +31,12 @@ import {
   SettleImage,
 } from "@/components/motion";
 
-export const metadata: Metadata = {
-  title: "About Us | We Buy Broken Jaguars",
+export const metadata = buildPageMetadata({
+  title: "About Us",
   description:
     "We buy broken, damaged and non-running Jaguars across mainland UK. Jaguar specialists who pay fair prices, collect nationwide and handle the paperwork. Here is who we are.",
-};
+  path: "/about",
+});
 
 const GREEN_ON_DARK = "#1f7a52";
 const ICON_SIZE = 26;
@@ -94,12 +95,12 @@ const VALUES: { title: string; body: string; icon: LucideIcon }[] = [
 ];
 
 const REGIONS = [
-  "[South East]",
-  "[South West]",
-  "[Midlands]",
-  "[The North]",
-  "[Scotland]",
-  "[Wales]",
+  "South East",
+  "South West",
+  "Midlands",
+  "The North",
+  "Scotland",
+  "Wales",
 ];
 
 function SpecRow({
@@ -282,8 +283,8 @@ export default function AboutPage() {
                   We started We Buy Broken Jaguars for one simple reason: too
                   many good cars were being thrown away as worthless. A blown
                   engine or a failed gearbox does not make a Jaguar scrap, it
-                  makes it our specialty. [Backed by [X] years in the motor
-                  trade], we have grown into a trusted UK buyer for broken,
+                  makes it our specialty. Backed by 20 years in the motor
+                  trade, we have grown into a trusted UK buyer for broken,
                   damaged and non-running Jaguars, paying fair prices and making
                   the whole process effortless.
                 </p>
@@ -391,7 +392,7 @@ export default function AboutPage() {
                 </ul>
               </RevealItem>
               <RevealItem>
-                <Button href="#valuation" showArrow className="mt-8">
+                <Button href="/#valuation" showArrow className="mt-8">
                   Get your free valuation
                 </Button>
               </RevealItem>
@@ -516,7 +517,7 @@ export default function AboutPage() {
               </RevealItem>
               <RevealItem>
                 <Button
-                  href="#valuation"
+                  href="/#valuation"
                   variant="primary"
                   primaryTone="accent"
                   showArrow

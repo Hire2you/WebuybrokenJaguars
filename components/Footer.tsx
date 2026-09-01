@@ -81,7 +81,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-6 text-xs leading-relaxed text-white/55">
-          <p>© 2025 We Buy Broken Jaguars. All rights reserved.</p>
+          <p>© 2026 We Buy Broken Jaguars. All rights reserved.</p>
         </div>
       </div>
     </footer>

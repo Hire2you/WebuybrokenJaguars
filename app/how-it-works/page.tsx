@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import {
   Check,
@@ -20,11 +20,12 @@ import {
   SettleImage,
 } from "@/components/motion";
 
-export const metadata: Metadata = {
-  title: "How It Works | We Buy Broken Jaguars",
+export const metadata = buildPageMetadata({
+  title: "How It Works",
   description:
     "Sell your broken Jaguar in three simple steps. Enter your details online, get a fair no-obligation offer, and receive same-day payment with free nationwide collection.",
-};
+  path: "/how-it-works",
+});
 
 const GREEN_ON_DARK = "#1f7a52";
 const ICON_SIZE = 22;
@@ -389,6 +390,7 @@ export default function HowItWorksPage() {
             align="left"
             theme="dark"
             titleSize="display"
+            headingLevel="h1"
             eyebrow="HOW IT WORKS"
             title="Selling your Jaguar, made simple"
             intro="From first click to same-day payment, here is exactly how it works. No auctions, no haggling, no hassle."

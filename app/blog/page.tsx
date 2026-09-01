@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Button from "@/components/Button";
 import CTAband from "@/components/CTAband";
@@ -17,11 +17,12 @@ import {
 import { getAllPosts } from "@/lib/blog";
 import { getBlogCategories } from "@/lib/blog-format";
 
-export const metadata: Metadata = {
-  title: "Jaguar Selling Guides & News | We Buy Broken Jaguars",
+export const metadata = buildPageMetadata({
+  title: "Jaguar Selling Guides & News",
   description:
     "Expert guides, tips and news on selling broken, damaged and non-running Jaguars in the UK. Fair valuations, common faults explained, and practical selling advice.",
-};
+  path: "/blog",
+});
 
 const GREEN_ON_DARK = "#1f7a52";
 
@@ -87,6 +88,7 @@ export default function BlogPage() {
             align="left"
             theme="dark"
             titleSize="display"
+            headingLevel="h1"
           />
           <RevealLine className="mt-8 h-px w-24 origin-left bg-[#1f7a52]/70" />
         </div>

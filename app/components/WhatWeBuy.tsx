@@ -206,7 +206,7 @@ export default function WhatWeBuy() {
 
             <RevealItem>
               <Button
-                href="#valuation"
+                href="/#valuation"
                 variant="primary"
                 primaryTone="accent"
                 showArrow

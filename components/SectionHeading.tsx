@@ -10,6 +10,7 @@ type SectionHeadingProps = {
   theme?: "light" | "dark";
   titleSize?: "default" | "display";
   revealTrigger?: TriggerMode;
+  headingLevel?: "h1" | "h2";
 };
 
 export default function SectionHeading({
@@ -20,7 +21,9 @@ export default function SectionHeading({
   theme = "light",
   titleSize = "default",
   revealTrigger = "viewport",
+  headingLevel = "h2",
 }: SectionHeadingProps) {
+  const HeadingTag = headingLevel;
   const alignment = align === "center" ? "mx-auto text-center" : "text-left";
   const isDark = theme === "dark";
   const titleClasses =
@@ -41,11 +44,11 @@ export default function SectionHeading({
         </p>
       </RevealItem>
       <RevealItem>
-        <h2
+        <HeadingTag
           className={`${titleClasses} ${isDark ? "text-white" : "text-ink"}`}
         >
           {title}
-        </h2>
+        </HeadingTag>
       </RevealItem>
       {intro ? (
         <RevealItem>

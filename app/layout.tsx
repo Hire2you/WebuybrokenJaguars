@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
 import ScrollRestoration from "@/components/ScrollRestoration";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import { buildPageMetadata, organizationJsonLd } from "@/lib/seo";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,9 +23,14 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "We Buy Broken Jaguars | Sell Your Broken Jaguar Today",
-  description:
-    "We buy broken, non-running and damaged Jaguar cars across the UK. Engine faults, gearbox problems and accident damage accepted. Free nationwide collection, same-day payment, no obligation.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  ...buildPageMetadata({
+    path: "/",
+  }),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -31,10 +40,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.className} ${inter.variable} ${bodoni.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <JsonLd data={organizationJsonLd()} />
         <ScrollRestoration />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppWidget />
       </body>
     </html>
   );

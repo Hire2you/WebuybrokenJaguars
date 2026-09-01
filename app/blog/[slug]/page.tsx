@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { articleJsonLd, buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -77,15 +79,26 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: "Article not found | We Buy Broken Jaguars",
-    };
+    return buildPageMetadata({
+      title: "Article not found",
+      description: "The article you are looking for could not be found.",
+      path: `/blog/${slug}`,
+      robots: {
+        index: false,
+        follow: true,
+      },
+    });
   }
 
-  return {
-    title: `${post.title} | We Buy Broken Jaguars`,
+  return buildPageMetadata({
+    title: post.title,
     description: post.description,
-  };
+    path: `/blog/${post.slug}`,
+    ogImage: post.coverImage,
+    ogType: "article",
+    publishedTime: post.date,
+    authors: [post.author],
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -98,6 +111,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      <JsonLd
+        data={articleJsonLd({
+          title: post.title,
+          description: post.description,
+          slug: post.slug,
+          datePublished: post.date,
+          author: post.author,
+          coverImage: post.coverImage,
+        })}
+      />
       <Section
         id="article-hero"
         background="black"
@@ -167,7 +190,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <MDXRemote source={post.content} components={mdxComponents} />
           </article>
           <div className="mt-12 border-t border-line pt-10">
-            <Button href="#valuation" showArrow>
+            <Button href="/#valuation" showArrow>
               Get your free valuation
             </Button>
           </div>

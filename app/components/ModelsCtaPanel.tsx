@@ -29,7 +29,7 @@ export default function ModelsCtaPanel() {
           it.
         </p>
         <Button
-          href="#valuation"
+          href="/#valuation"
           variant="inverse"
           showArrow
           className="mt-8 w-full max-w-xs sm:w-auto"

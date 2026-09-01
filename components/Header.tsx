@@ -9,13 +9,11 @@ import { HEADER_LINKS } from "./navLinks";
 
 function QuotePromiseBadge() {
   return (
-    <div className="flex min-w-0 flex-1 justify-center px-0.5 md:hidden">
-      <p className="w-full rounded-lg border-2 border-white bg-[#171717] px-2.5 py-3 text-center text-[15px] font-extrabold leading-snug text-white sm:px-4 sm:text-base">
-        We Will Beat Any
-        <br />
-        Genuine Quote
-      </p>
-    </div>
+    <p className="min-w-0 rounded-2xl border-2 border-white bg-[#e30613] px-2 py-1.5 text-center text-[11px] font-extrabold uppercase leading-[1.15] tracking-wide text-white md:hidden">
+      We Will Beat Any
+      <br />
+      Genuine Quote
+    </p>
   );
 }
 
@@ -45,7 +43,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-jet-black py-3 md:py-5">
       <Container>
-        <div className="flex items-center justify-between gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/"
             aria-label="We Buy Broken Jaguars — home"
@@ -57,11 +55,13 @@ export default function Header() {
               width={1000}
               height={500}
               priority
-              className="h-10 w-auto sm:h-16 md:h-20"
+              className="h-14 w-auto sm:h-16 md:h-20"
             />
           </Link>
 
-          <QuotePromiseBadge />
+          <div className="flex min-w-0 flex-1 justify-center">
+            <QuotePromiseBadge />
+          </div>
 
           <button
             type="button"

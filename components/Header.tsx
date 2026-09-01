@@ -9,7 +9,7 @@ import { HEADER_LINKS } from "./navLinks";
 
 function QuotePromiseBadge() {
   return (
-    <p className="min-w-0 rounded-2xl border-2 border-white bg-[#e30613] px-2 py-1.5 text-center text-[11px] font-extrabold uppercase leading-[1.15] tracking-wide text-white md:hidden">
+    <p className="min-w-0 rounded-2xl border-2 border-white bg-[#e30613] px-3.5 py-2.5 text-center text-[13px] font-extrabold uppercase leading-[1.15] tracking-wide text-white sm:px-4 sm:py-3 sm:text-sm md:hidden">
       We Will Beat Any
       <br />
       Genuine Quote

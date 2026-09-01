@@ -22,7 +22,7 @@ function CallNowBar() {
       <span aria-hidden="true" className="phone-tilt-left">
         <span className="phone-shake text-4xl leading-none">☎️</span>
       </span>
-      <span className="min-w-0 text-center text-base font-bold uppercase tracking-[0.06em] sm:text-lg">
+      <span className="min-w-0 text-center text-base font-bold uppercase tracking-[0.06em] underline sm:text-lg">
         Call now: {compactNumber}
       </span>
       <span aria-hidden="true" className="phone-tilt-right">

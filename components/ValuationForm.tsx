@@ -8,6 +8,7 @@ import {
   useState,
   type FormEvent,
 } from "react";
+import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { VALUATION_CONDITIONS } from "@/lib/valuation";
 
@@ -488,6 +489,7 @@ function TrustPoints() {
 }
 
 export default function ValuationForm() {
+  const router = useRouter();
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const skipInitialFocus = useRef(true);
@@ -495,7 +497,6 @@ export default function ValuationForm() {
   const [step, setStep] = useState<Step>(1);
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -580,7 +581,7 @@ export default function ValuationForm() {
         return;
       }
 
-      setSubmitted(true);
+      router.push("/thank-you");
     } catch {
       setSubmitError("Unable to send your valuation. Please try again.");
     } finally {
@@ -594,95 +595,60 @@ export default function ValuationForm() {
     setStep((current) => (current - 1) as Step);
   }
 
-  function handleReset() {
-    skipInitialFocus.current = true;
-    setSubmitted(false);
-    setIsSubmitting(false);
-    setSubmitError(null);
-    setStep(1);
-    setValues(INITIAL_VALUES);
-    setErrors({});
-  }
-
   const fieldProps: FieldProps = { ids, values, errors, onChange: handleChange };
 
   return (
     <div className="mx-auto w-full max-w-3xl rounded-2xl border-2 border-brand-green bg-white p-5 shadow-[0_20px_45px_-25px_rgba(10,61,42,0.45)] sm:p-8">
-      {submitted ? (
-        <div className="py-4 text-center sm:py-6">
-          <p className="font-sans text-xl font-bold uppercase tracking-tight text-brand-green sm:text-2xl">
-            We have your details
-          </p>
-          <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-grey-secondary">
-            Thanks. We will be in touch shortly with a no-obligation offer for
-            your Jaguar.
-          </p>
-          <Button
-            type="button"
-            variant="primary"
-            size="lg"
-            fullWidth
-            className="mt-6 flex"
-            onClick={handleReset}
-          >
-            Get another valuation
-          </Button>
-          <TrustPoints />
+      <StepIndicator step={step} />
+      <h2 id={headingId} className="sr-only">
+        Step {step} of {TOTAL_STEPS}: {STEP_TITLES[step]}
+      </h2>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        noValidate
+        aria-labelledby={headingId}
+      >
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+          {step === 1 ? <StepOneFields {...fieldProps} /> : null}
+          {step === 2 ? <StepTwoFields {...fieldProps} /> : null}
+          {step === 3 ? <StepThreeFields {...fieldProps} /> : null}
         </div>
-      ) : (
-        <>
-          <StepIndicator step={step} />
-          <h2 id={headingId} className="sr-only">
-            Step {step} of {TOTAL_STEPS}: {STEP_TITLES[step]}
-          </h2>
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            noValidate
-            aria-labelledby={headingId}
+
+        {submitError ? (
+          <p
+            role="alert"
+            className="mt-4 text-center text-sm text-red-800"
           >
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-              {step === 1 ? <StepOneFields {...fieldProps} /> : null}
-              {step === 2 ? <StepTwoFields {...fieldProps} /> : null}
-              {step === 3 ? <StepThreeFields {...fieldProps} /> : null}
-            </div>
+            {submitError}
+          </p>
+        ) : null}
 
-            {submitError ? (
-              <p
-                role="alert"
-                className="mt-4 text-center text-sm text-red-800"
-              >
-                {submitError}
-              </p>
-            ) : null}
+        <Button
+          type="submit"
+          variant="primary"
+          size="lg"
+          fullWidth
+          showArrow
+          disabled={isSubmitting}
+          className="mt-4 flex"
+        >
+          {isSubmitting
+            ? "Sending..."
+            : step === 3
+              ? "Get my valuation"
+              : "Next"}
+        </Button>
 
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
-              showArrow
-              disabled={isSubmitting}
-              className="mt-4 flex"
-            >
-              {isSubmitting
-                ? "Sending..."
-                : step === 3
-                  ? "Get my valuation"
-                  : "Next"}
+        {step > 1 ? (
+          <div className="mt-3 flex justify-center">
+            <Button type="button" variant="link" onClick={handleBack}>
+              Back
             </Button>
-
-            {step > 1 ? (
-              <div className="mt-3 flex justify-center">
-                <Button type="button" variant="link" onClick={handleBack}>
-                  Back
-                </Button>
-              </div>
-            ) : null}
-          </form>
-          <TrustPoints />
-        </>
-      )}
+          </div>
+        ) : null}
+      </form>
+      <TrustPoints />
     </div>
   );
 }

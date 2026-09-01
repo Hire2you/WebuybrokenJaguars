@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Container from "@/components/Container";
 import ValuationForm from "@/components/ValuationForm";
 import {
@@ -33,7 +34,11 @@ function CallNowBar() {
   );
 }
 
-export default function Hero() {
+type HeroProps = {
+  children?: ReactNode;
+};
+
+export default function Hero({ children }: HeroProps) {
   return (
     <section
       id="valuation"
@@ -67,7 +72,7 @@ export default function Hero() {
             delay={0.2}
             className="relative mt-8 sm:mt-10"
           >
-            <ValuationForm />
+            {children ?? <ValuationForm />}
           </HeroEntrance>
 
           <HeroEntrance variant="car-rise" delay={0.35}>

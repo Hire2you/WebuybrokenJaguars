@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
+import GoogleAds from "@/components/GoogleAds";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import ScrollRestoration from "@/components/ScrollRestoration";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.className} ${inter.variable} ${bodoni.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <GoogleAds />
         <JsonLd data={organizationJsonLd()} />
         <ScrollRestoration />
         <Header />

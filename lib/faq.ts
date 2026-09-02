@@ -85,3 +85,50 @@ export const KENT_FAQS: FaqItem[] = [
       "No. It goes on a trailer from wherever it's sitting. Mention any tight access, a locked gate or a shared drive when you enquire so we bring the right kit.",
   },
 ];
+
+export const ESSEX_FAQS: FaqItem[] = [
+  {
+    question:
+      "Do you actually come out to Essex, or do you pass it to a local yard?",
+    answer:
+      "We come ourselves. Our own recovery collects from Essex — we are based in Medway, Kent, and the distance is our cost, not yours. We do not pass your enquiry to a local yard.",
+  },
+  {
+    question:
+      "What is a broken Jaguar XF actually worth — is it just scrap value?",
+    answer:
+      "Not if it is a complete car with one significant fault. We recently bought a 68-plate XF for about £2,500, priced as a car rather than by the tonne. Every Jaguar is different — model, mileage, spec and which fault it has all move the figure. Submit your reg for a real number.",
+  },
+  {
+    question:
+      "My Jaguar has not started in two years and is off the road in Essex. Will you still take it?",
+    answer:
+      "Yes. Non-runners and cars that have not moved in years are normal for us. No MOT, no logbook and no need for it to start or drive — we collect on a trailer from wherever it is standing.",
+  },
+  {
+    question: "I have lost the V5 and it has no MOT. Is that a problem?",
+    answer:
+      "No. A V5C is not required and neither is an MOT. We complete the change-of-keeper section as part of every purchase. You will still need to confirm the sale to DVLA yourself once we have collected the car.",
+  },
+  {
+    question: "It is a Cat S. Does that mean it is only worth scrap?",
+    answer:
+      "No. Cat S is recorded structural damage and Cat N is recorded non-structural damage — both are valuation cases of their own, priced as recorded-damage cars rather than folded into end-of-life stock. Tell us the category on the form.",
+  },
+  {
+    question:
+      "When do I get paid, and does the money arrive before the car leaves?",
+    answer:
+      "Yes. Payment is made the same day by secure bank transfer, cleared before we leave with the car. There is no waiting for a cheque or a transfer sent after collection.",
+  },
+  {
+    question: "What paperwork do I get, and who tells the DVLA?",
+    answer:
+      "You receive a receipt, a sale confirmation and the DVLA acknowledgement. We file the change-of-keeper notification as part of every purchase.",
+  },
+  {
+    question: "How soon after the offer would you collect from Essex?",
+    answer:
+      "Usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised — same-day belongs to the payment.",
+  },
+];

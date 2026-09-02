@@ -6,7 +6,7 @@ import IconSquare from "@/components/IconSquare";
 import Section from "@/components/Section";
 import { ChevronDownIcon } from "@/components/icons";
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from "@/components/siteContact";
-import { SITE_FAQS } from "@/lib/faq";
+import { SITE_FAQS, type FaqItem } from "@/lib/faq";
 import { useId, useState } from "react";
 import {
   RevealGroup,
@@ -15,6 +15,11 @@ import {
 import { useReducedMotion } from "motion/react";
 
 const FAQS = SITE_FAQS;
+
+type FAQProps = {
+  faqs?: FaqItem[];
+  valuationHref?: string;
+};
 
 type FaqItemProps = {
   question: string;
@@ -100,7 +105,10 @@ function FaqItem({
   );
 }
 
-export default function FAQ() {
+export default function FAQ({
+  faqs = FAQS,
+  valuationHref = "/#valuation",
+}: FAQProps) {
   const baseId = useId();
   const reducedMotion = useReducedMotion() ?? false;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -167,7 +175,7 @@ export default function FAQ() {
                   </div>
 
                   <Button
-                    href="/#valuation"
+                    href={valuationHref}
                     variant="inverse"
                     fullWidth
                     showArrow
@@ -183,7 +191,7 @@ export default function FAQ() {
 
         <div className="min-w-0 overflow-hidden rounded-2xl border border-line bg-white">
           <RevealGroup>
-              {FAQS.map((item, index) => {
+              {faqs.map((item, index) => {
                 const isOpen = openIndex === index;
                 const triggerId = `${baseId}-trigger-${index}`;
                 const panelId = `${baseId}-panel-${index}`;

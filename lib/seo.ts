@@ -145,6 +145,86 @@ export function faqPageJsonLd(faqs: FaqItem[]) {
   };
 }
 
+type LocationPageJsonLdOptions = {
+  title: string;
+  description: string;
+  path: string;
+  serviceType: string;
+  areaServed: string[];
+  faqs: FaqItem[];
+  breadcrumbName?: string;
+};
+
+export function locationPageJsonLd({
+  title,
+  description,
+  path,
+  serviceType,
+  areaServed,
+  faqs,
+  breadcrumbName,
+}: LocationPageJsonLdOptions) {
+  const url = absoluteUrl(path);
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: title,
+        description,
+        url,
+      },
+      {
+        "@type": "Service",
+        name: title,
+        serviceType,
+        description,
+        url,
+        provider: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+          telephone: SITE_CONTACT.phoneTel,
+          email: SITE_CONTACT.email,
+        },
+        areaServed: areaServed.map((name) => ({
+          "@type": "Place",
+          name,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: breadcrumbName ?? title,
+            item: url,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+}
+
 type ArticleJsonLdOptions = {
   title: string;
   description: string;

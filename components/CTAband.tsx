@@ -3,9 +3,16 @@
 import ValuationForm from "./ValuationForm";
 import { Reveal, RevealGroup, RevealItem } from "./motion";
 
-export default function CTAband() {
+type CTAbandProps = {
+  id?: string;
+};
+
+export default function CTAband({ id }: CTAbandProps) {
   return (
-    <section className="bg-jet-black py-20 md:py-28">
+    <section
+      id={id}
+      className={`bg-jet-black py-20 md:py-28 ${id ? "scroll-mt-28" : ""}`}
+    >
       <div className="mx-auto max-w-6xl px-6 text-center">
         <RevealGroup>
           <RevealItem>

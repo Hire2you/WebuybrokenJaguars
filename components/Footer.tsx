@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_LINKS } from "./navLinks";
+import { COUNTIES, getCountyPath } from "@/lib/locations";
 import {
   SITE_EMAIL,
   SITE_OPENING_HOURS,
@@ -76,6 +77,18 @@ export default function Footer() {
           <p className="mt-4 text-sm leading-relaxed text-white/80">
             Buying Jaguars across mainland UK.
           </p>
+          <ul className="mt-4 space-y-2">
+            {COUNTIES.map((county) => (
+              <li key={county.slug}>
+                <Link
+                  href={getCountyPath(county)}
+                  className="motion-link-underline text-sm text-white/80 transition-colors hover:text-white"
+                >
+                  {county.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

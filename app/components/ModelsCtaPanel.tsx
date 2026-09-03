@@ -8,11 +8,11 @@ export default function ModelsCtaPanel() {
   return (
     <Reveal className="relative mt-12 overflow-hidden rounded-2xl bg-brand-green px-6 py-10 text-center sm:px-10 sm:py-12 md:mt-16 md:px-14 md:py-16">
       <Image
-        src="/cta/jaguar-panel.png"
+        src="/cta/jaguar-panel.webp"
         alt=""
         fill
         sizes="(max-width: 768px) 100vw, 1152px"
-        quality={90}
+        quality={75}
         className="pointer-events-none object-cover object-[center_70%]"
       />
       <div

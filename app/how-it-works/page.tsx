@@ -48,7 +48,7 @@ const STEPS = [
       "Running or not",
     ],
     imageLabel: "Person entering car details on phone",
-    imageSrc: "/how-it-works/enter-details-phone.jpg",
+    imageSrc: "/how-it-works/enter-details-phone.webp",
     imageAlt:
       "Person entering their Jaguar details on the We Buy Broken Jaguars website on a phone",
   },

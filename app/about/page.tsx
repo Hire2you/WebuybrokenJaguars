@@ -256,7 +256,7 @@ export default function AboutPage() {
           <RevealFrom direction="left" className="min-w-0">
             <SettleImage className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-[0_22px_40px_-24px_rgba(10,61,42,0.35)] ring-1 ring-brand-green/10">
               <Image
-                src="/about/jag-f-pace-centred.png"
+                src="/about/jag-f-pace-centred.webp"
                 alt="White Jaguar F-Pace SUV"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -348,7 +348,7 @@ export default function AboutPage() {
           <div className="min-w-0 lg:sticky lg:top-32 lg:order-2 lg:self-start">
             <SettleImage className="relative aspect-square overflow-hidden rounded-xl shadow-[0_22px_40px_-24px_rgba(10,61,42,0.35)] ring-1 ring-brand-green/10">
               <Image
-                src="/about/jaguar-f-pace.png"
+                src="/about/jaguar-f-pace.webp"
                 alt="Grey Jaguar F-Pace SUV"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
 import {
   useEffect,
   useId,
@@ -303,12 +302,22 @@ function ConditionSelect({
       >
         <span className="flex items-center justify-between gap-2">
           <span className="flex-1 text-center">{value || "CONDITION"}</span>
-          <ChevronDown
-            size={18}
-            strokeWidth={2.25}
-            aria-hidden
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
             className={`shrink-0 text-black transition-transform ${open ? "rotate-180" : ""}`}
-          />
+          >
+            <path
+              d="M6 9l6 6 6-6"
+              stroke="currentColor"
+              strokeWidth="2.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </span>
       </button>
 

@@ -1,124 +1,35 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
-import { HERO_ENTRANCE_DURATION, EASE } from "@/lib/motion";
-
-/** Top (vanishing point) → bottom; reveal runs downward along the edge. */
-const LEFT_EDGE = { id: "hero-road-left", topX: 30, topY: 0, bottomX: 13, bottomY: 100 };
-const RIGHT_EDGE = { id: "hero-road-right", topX: 70, topY: 0, bottomX: 87, bottomY: 100 };
-
-const FADE_FEATHER = 14;
-
-function LineRevealMask({
-  id,
-  topX,
-  topY,
-  bottomX,
-  bottomY,
-  delay,
-  children,
-}: {
-  id: string;
-  topX: number;
-  topY: number;
-  bottomX: number;
-  bottomY: number;
-  delay: number;
-  children: ReactNode;
-}) {
-  const reducedMotion = useReducedMotion();
-  const gradId = `${id}-reveal-grad`;
-  const maskId = `${id}-reveal-mask`;
-  const transition = {
-    duration: HERO_ENTRANCE_DURATION,
-    ease: EASE,
-    delay,
-  };
-
-  return (
-    <>
-      <defs>
-        <linearGradient
-          id={gradId}
-          gradientUnits="userSpaceOnUse"
-          x1={topX}
-          y1={topY}
-          x2={bottomX}
-          y2={bottomY}
-        >
-          <stop offset="0%" stopColor="white" />
-          {reducedMotion ? (
-            <stop offset="100%" stopColor="white" />
-          ) : (
-            <>
-              <motion.stop
-                offset="0%"
-                stopColor="white"
-                initial={{ offset: "0%" }}
-                animate={{ offset: `${100 - FADE_FEATHER}%` }}
-                transition={transition}
-              />
-              <motion.stop
-                offset={`${FADE_FEATHER}%`}
-                stopColor="black"
-                initial={{ offset: `${FADE_FEATHER}%` }}
-                animate={{ offset: "100%" }}
-                transition={transition}
-              />
-            </>
-          )}
-          <stop offset="100%" stopColor="black" />
-        </linearGradient>
-        <mask
-          id={maskId}
-          maskUnits="userSpaceOnUse"
-          x="0"
-          y="0"
-          width="100"
-          height="100"
-        >
-          <rect x="0" y="0" width="100" height="100" fill={`url(#${gradId})`} />
-        </mask>
-      </defs>
-      <g mask={`url(#${maskId})`}>{children}</g>
-    </>
-  );
-}
+const LEFT_EDGE = { topX: 30, topY: 0, bottomX: 13, bottomY: 100 };
+const RIGHT_EDGE = { topX: 70, topY: 0, bottomX: 87, bottomY: 100 };
 
 function RoadEdgeLine({
-  id,
   topX,
   topY,
   bottomX,
   bottomY,
-  delay,
 }: {
-  id: string;
   topX: number;
   topY: number;
   bottomX: number;
   bottomY: number;
-  delay: number;
 }) {
-  const coords = { x1: topX, y1: topY, x2: bottomX, y2: bottomY };
-
   return (
-    <LineRevealMask
-      id={id}
-      topX={topX}
-      topY={topY}
-      bottomX={bottomX}
-      bottomY={bottomY}
-      delay={delay}
-    >
+    <>
       <line
         className="hero-road-edge-glow"
-        {...coords}
+        x1={topX}
+        y1={topY}
+        x2={bottomX}
+        y2={bottomY}
         filter="url(#hero-road-edge-blur)"
       />
-      <line className="hero-road-edge-core" {...coords} />
-    </LineRevealMask>
+      <line
+        className="hero-road-edge-core"
+        x1={topX}
+        y1={topY}
+        x2={bottomX}
+        y2={bottomY}
+      />
+    </>
   );
 }
 
@@ -168,8 +79,8 @@ export default function HeroRoadEdges() {
         </filter>
       </defs>
 
-      <RoadEdgeLine {...LEFT_EDGE} delay={0.4} />
-      <RoadEdgeLine {...RIGHT_EDGE} delay={0.45} />
+      <RoadEdgeLine {...LEFT_EDGE} />
+      <RoadEdgeLine {...RIGHT_EDGE} />
     </svg>
   );
 }

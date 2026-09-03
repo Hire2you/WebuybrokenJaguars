@@ -13,20 +13,20 @@ type Model = {
 };
 
 const models: Model[] = [
-  { name: "XE", bodyStyle: "Saloon", src: "/models/xe.jpg" },
-  { name: "XF", bodyStyle: "Saloon", src: "/models/xf.jpg" },
-  { name: "XJ", bodyStyle: "Saloon", src: "/models/xj.jpg" },
-  { name: "XK", bodyStyle: "Grand Tourer", src: "/models/xk.jpg" },
-  { name: "F-Type", bodyStyle: "Sports Car", src: "/models/f-type.jpg" },
-  { name: "F-Pace", bodyStyle: "SUV", src: "/models/f-pace.jpg" },
-  { name: "E-Pace", bodyStyle: "SUV", src: "/models/e-pace.jpg" },
-  { name: "I-Pace", bodyStyle: "Electric SUV", src: "/models/i-pace.jpg" },
-  { name: "S-Type", bodyStyle: "Saloon", src: "/models/s-type.jpg" },
-  { name: "X-Type", bodyStyle: "Saloon", src: "/models/x-type.jpg" },
+  { name: "XE", bodyStyle: "Saloon", src: "/models/xe.webp" },
+  { name: "XF", bodyStyle: "Saloon", src: "/models/xf.webp" },
+  { name: "XJ", bodyStyle: "Saloon", src: "/models/xj.webp" },
+  { name: "XK", bodyStyle: "Grand Tourer", src: "/models/xk.webp" },
+  { name: "F-Type", bodyStyle: "Sports Car", src: "/models/f-type.webp" },
+  { name: "F-Pace", bodyStyle: "SUV", src: "/models/f-pace.webp" },
+  { name: "E-Pace", bodyStyle: "SUV", src: "/models/e-pace.webp" },
+  { name: "I-Pace", bodyStyle: "Electric SUV", src: "/models/i-pace.webp" },
+  { name: "S-Type", bodyStyle: "Saloon", src: "/models/s-type.webp" },
+  { name: "X-Type", bodyStyle: "Saloon", src: "/models/x-type.webp" },
   {
     name: "Classic & Older",
     bodyStyle: "All Years",
-    src: "/models/classic.jpg",
+    src: "/models/classics.webp",
   },
 ];
 

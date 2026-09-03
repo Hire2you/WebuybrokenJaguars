@@ -88,7 +88,7 @@ function ConditionsCarBackdrop() {
       {!imageMissing ? (
         <>
           <Image
-            src="/conditions-car.png"
+            src="/jaguar-hero-lineup-mobile.webp"
             alt=""
             fill
             sizes="100vw"

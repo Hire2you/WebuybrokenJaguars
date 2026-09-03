@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
 import Container from "@/components/Container";
-import ValuationForm from "@/components/ValuationForm";
 import {
   SITE_PHONE_DISPLAY,
   SITE_PHONE_TEL,
 } from "@/components/siteContact";
 import CarShowcase from "./CarShowcase";
 import HeroRoad from "./HeroRoad";
+
+const ValuationForm = dynamic(() => import("@/components/ValuationForm"));
 
 function CallNowBar() {
   const compactNumber = SITE_PHONE_DISPLAY.replace(/\s/g, "");

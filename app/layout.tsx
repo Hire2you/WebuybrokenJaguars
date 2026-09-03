@@ -14,6 +14,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  adjustFontFallback: true,
 });
 
 const bodoni = Bodoni_Moda({

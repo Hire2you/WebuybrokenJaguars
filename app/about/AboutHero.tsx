@@ -67,7 +67,7 @@ function AboutHeroImage() {
     >
       <div className="relative h-full min-h-[11rem] w-full sm:min-h-[13rem] lg:min-h-0">
         <Image
-          src="/about-hero.png"
+          src="/about/jag-f-pace-centred.webp"
           alt=""
           fill
           priority

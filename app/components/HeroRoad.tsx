@@ -1,13 +1,15 @@
-import HeroPillars from "./HeroPillars";
-import HeroRoadEdges from "./HeroRoadEdges";
+import {
+  HeroPillarsDeferred,
+  HeroRoadEdgesDeferred,
+} from "./HeroRoadMotion";
 
 export default function HeroRoad() {
   return (
     <div className="hero-road" aria-hidden="true">
-      <HeroPillars />
+      <HeroPillarsDeferred />
       <div className="hero-road-asphalt" />
 
-      <HeroRoadEdges />
+      <HeroRoadEdgesDeferred />
 
       <div className="hero-road-stage">
         <div className="hero-road-plane">

@@ -54,7 +54,7 @@ export default function Header() {
               alt="We Buy Broken Jaguars"
               width={1000}
               height={500}
-              priority
+              sizes="(max-width: 768px) 112px, 160px"
               className="h-14 w-auto sm:h-16 md:h-20"
             />
           </Link>

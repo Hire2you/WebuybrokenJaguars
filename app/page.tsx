@@ -1,15 +1,17 @@
-import CTAband from "@/components/CTAband";
+import dynamic from "next/dynamic";
 import JsonLd from "@/components/JsonLd";
 import { SITE_FAQS } from "@/lib/faq";
 import { faqPageJsonLd } from "@/lib/seo";
-import FAQ from "./components/FAQ";
 import Hero from "./components/Hero";
-import HowItWorks from "./components/HowItWorks";
-import ModelsWeBuy from "./components/ModelsWeBuy";
-import Testimonials from "./components/Testimonials";
-import TrustBar from "./components/TrustBar";
-import WhatWeBuy from "./components/WhatWeBuy";
-import WhyUs from "./components/WhyUs";
+
+const TrustBar = dynamic(() => import("./components/TrustBar"));
+const HowItWorks = dynamic(() => import("./components/HowItWorks"));
+const WhatWeBuy = dynamic(() => import("./components/WhatWeBuy"));
+const WhyUs = dynamic(() => import("./components/WhyUs"));
+const ModelsWeBuy = dynamic(() => import("./components/ModelsWeBuy"));
+const Testimonials = dynamic(() => import("./components/Testimonials"));
+const FAQ = dynamic(() => import("./components/FAQ"));
+const CTAband = dynamic(() => import("@/components/CTAband"));
 
 export default function Home() {
   return (

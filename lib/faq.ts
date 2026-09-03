@@ -132,3 +132,60 @@ export const ESSEX_FAQS: FaqItem[] = [
       "Usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised — same-day belongs to the payment.",
   },
 ];
+
+export const SOUTH_LONDON_FAQS: FaqItem[] = [
+  {
+    question:
+      "Do you actually come out to South London, or do you pass it to a local yard?",
+    answer:
+      "We come ourselves. Our own recovery collects across South London and we are based in Medway, Kent — for most of Bromley, Bexley, Croydon and Greenwich that is a shorter run than the London yards quoting you. The distance is our cost, not yours, and we do not pass your enquiry on.",
+  },
+  {
+    question: "My Jaguar fails ULEZ. Is it worth less because of that?",
+    answer:
+      "No. ULEZ is a charge for driving in London, not a judgement on the car. We buy nationwide, so a non-compliant Jaguar is worth what a compliant one of the same model, mileage, spec and condition is worth. It is usually the reason the car stopped being used, not the reason it is cheap.",
+  },
+  {
+    question:
+      "It is parked on the street and I cannot SORN it. What are my options?",
+    answer:
+      "A SORN only applies if the car is kept off the public road, so on-street parking means staying taxed and insured or risking DVLA action. Selling it ends the cost the day we collect. Mention on the form that it is on-street and we will prioritise the collection.",
+  },
+  {
+    question: "Can you get a trailer down my road?",
+    answer:
+      "Almost always, but tell us the situation first. Narrow terraced streets, one-ways, red routes, permit bays, estate barriers and car park height limits are all normal in South London and all workable if we know before the driver sets off. If access genuinely will not allow a trailer, we will tell you the alternative rather than turn up and find out.",
+  },
+  {
+    question:
+      "What is a broken Jaguar XF actually worth — is it just scrap value?",
+    answer:
+      "Not if it is a complete car with one significant fault. We recently bought a 68-plate XF for about £2,500, priced as a car rather than by the tonne. Model, mileage, spec and which fault it has all move the figure. Submit your reg for a real number.",
+  },
+  {
+    question: "My Jaguar has not started in two years. Will you still take it?",
+    answer:
+      "Yes. Non-runners and cars that have not moved in years are normal for us. No MOT, no logbook and no need for it to start or drive. We collect on a trailer from wherever it is standing.",
+  },
+  {
+    question: "I have lost the V5. Is that a problem?",
+    answer:
+      "No. A V5C is not required and neither is an MOT. We complete the change-of-keeper section as part of every purchase. You will still need to confirm the sale to DVLA yourself once we have collected the car.",
+  },
+  {
+    question: "It is a Cat S. Does that mean it is only worth scrap?",
+    answer:
+      "No. Cat S is recorded structural damage and Cat N is recorded non-structural damage. Both are valuation cases of their own, priced as recorded-damage cars rather than folded into end-of-life stock. Tell us the category on the form.",
+  },
+  {
+    question:
+      "When do I get paid, and does the money arrive before the car leaves?",
+    answer:
+      "Yes. Payment is made the same day by secure bank transfer, cleared before we leave with the car. There is no waiting for a cheque or a transfer sent after collection.",
+  },
+  {
+    question: "How soon after the offer would you collect from South London?",
+    answer:
+      "Usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised — same-day belongs to the payment.",
+  },
+];

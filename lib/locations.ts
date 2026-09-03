@@ -96,6 +96,41 @@ export const COUNTIES: LocationCounty[] = [
       town("Witham"),
     ],
   },
+  {
+    name: "South London",
+    slug: "sell-my-broken-jaguar-south-london",
+    title: "Sell My Broken Jaguar in South London",
+    description:
+      "Broken, damaged, non-running and ULEZ-caught Jaguars bought across South London. Priced on the whole car by Jaguar specialists. Free collection on our own recovery, same-day payment.",
+    areaServed: [
+      "Bexley",
+      "Bromley",
+      "Croydon",
+      "Greenwich",
+      "Kingston upon Thames",
+      "Lambeth",
+      "Lewisham",
+      "Merton",
+      "Richmond upon Thames",
+      "Southwark",
+      "Sutton",
+      "Wandsworth",
+    ],
+    towns: [
+      town("Bexley"),
+      town("Bromley"),
+      town("Croydon"),
+      town("Greenwich"),
+      town("Kingston upon Thames"),
+      town("Lambeth"),
+      town("Lewisham"),
+      town("Merton"),
+      town("Richmond upon Thames"),
+      town("Southwark"),
+      town("Sutton"),
+      town("Wandsworth"),
+    ],
+  },
 ];
 
 export function getCountyBySlug(slug: string): LocationCounty | undefined {

@@ -826,10 +826,24 @@ export default function KentHubPage() {
           <RevealItem>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
               Beyond the county, collection is free anywhere in mainland UK,
-              from the south coast to the Scottish border, so if the Jaguar is
-              in Kent but you are not, that changes nothing. Send the reg, the
-              mileage and the postcode, tell us what the car is doing, and we
-              will come back with a free offer and no obligation.
+              from the south coast to the Scottish border — including{" "}
+              <Link
+                href="/sell-my-broken-jaguar-essex"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                Essex
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/sell-my-broken-jaguar-south-london"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                South London
+              </Link>
+              . If the Jaguar is in Kent but you are not, that changes nothing.
+              Send the reg, the mileage and the postcode, tell us what the car
+              is doing, and we will come back with a free offer and no
+              obligation.
             </p>
           </RevealItem>
         </RevealGroup>

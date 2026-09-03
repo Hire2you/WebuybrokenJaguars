@@ -86,6 +86,49 @@ export const KENT_FAQS: FaqItem[] = [
   },
 ];
 
+export const MEDWAY_FAQS: FaqItem[] = [
+  {
+    question: "Do you actually come out to Medway, or does it go to a local yard?",
+    answer:
+      "We come ourselves. We are based in Medway, and the people who quote are the people who collect. There is no local yard in the middle and no enquiry passed on to whoever happens to be nearest.",
+  },
+  {
+    question:
+      "How quickly can you collect from Chatham, Gillingham or Rochester?",
+    answer:
+      "In Medway we can collect the same day. That is a Medway claim — elsewhere in Kent collection is usually within 24 to 48 hours of an accepted offer, often sooner. Payment is same day either way, by secure bank transfer, cleared before we leave.",
+  },
+  {
+    question:
+      "What is a broken Jaguar actually worth compared with scrapping it?",
+    answer:
+      "A scrap figure is the weight of the car times the price of metal that week, which is why it can come back the same for a hatchback and an XJ. Prices we have actually paid for a broken Jaguar run from £1,200 to £10,000, depending on the model, the mileage, the specification and which fault it has. Submit your reg for a number on your car.",
+  },
+  {
+    question:
+      "My XF has an Ingenium timing chain rattle. Will you still buy it?",
+    answer:
+      "Yes. Ingenium timing chain rattle on the 2.0-litre petrol and diesel engines is a named fault we buy, not a reason to treat the car as scrap. Describe what it is doing on the form and it goes into the figure.",
+  },
+  {
+    question:
+      "Can I sell a Cat S or Cat N Jaguar, including one that has already been repaired?",
+    answer:
+      "Yes. Cat S is recorded structural damage and Cat N is recorded non-structural damage. A recorded category stays with the car and affects what it is worth, but it does not stop it being bought. A repaired write-off is a normal sale here rather than an awkward one. Tell us the category and what work has been done.",
+  },
+  {
+    question:
+      "The car has been on SORN for years and I cannot find the V5C. Is that a problem?",
+    answer:
+      "No. A V5C is not required, neither is an MOT, and the car does not need to start or drive. Cars that have been stood for years on SORN are normal for us. We complete the change-of-keeper notification as part of every purchase. You will still need to confirm the sale to DVLA yourself once we have collected it.",
+  },
+  {
+    question: "When do I get paid?",
+    answer:
+      "Same day, by secure bank transfer, cleared before the car leaves. There is no waiting for a cheque or a transfer sent after collection.",
+  },
+];
+
 export const ESSEX_FAQS: FaqItem[] = [
   {
     question:

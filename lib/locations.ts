@@ -48,6 +48,11 @@ export const COUNTIES: LocationCounty[] = [
       town("Herne Bay"),
       town("Maidstone"),
       town("Margate"),
+      {
+        name: "Medway",
+        slug: "medway",
+        published: true,
+      },
       town("Ramsgate"),
       town("Rochester"),
       town("Sevenoaks"),
@@ -217,6 +222,13 @@ export function getCountyBySlug(slug: string): LocationCounty | undefined {
 
 export function getCountyPath(county: LocationCounty): string {
   return `/${county.slug}`;
+}
+
+export function getTownBySlug(
+  county: LocationCounty,
+  slug: string,
+): LocationTown | undefined {
+  return county.towns.find((locationTown) => locationTown.slug === slug);
 }
 
 export function getTownPath(

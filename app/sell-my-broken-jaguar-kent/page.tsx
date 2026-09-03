@@ -276,7 +276,11 @@ function TownLink({
         iconSize={16}
         strokeWidth={2.5}
       />
-      <span className="text-sm font-medium tracking-tight text-ink md:text-[0.9375rem]">
+      <span
+        className={`text-sm font-medium tracking-tight md:text-[0.9375rem] ${
+          town.published ? "text-brand-green" : "text-ink"
+        }`}
+      >
         {town.name}
       </span>
     </>
@@ -741,8 +745,15 @@ export default function KentHubPage() {
               <RevealItem>
                 <p className="mt-4 max-w-prose text-base leading-relaxed text-white/65 md:text-lg">
                   Collection is usually within 24 to 48 hours of an accepted
-                  offer, often sooner. Payment is same day, by secure bank
-                  transfer, cleared before we leave.
+                  offer, often sooner. If the car is in{" "}
+                  <Link
+                    href="/sell-my-broken-jaguar-kent/medway"
+                    className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+                  >
+                    Medway
+                  </Link>
+                  , we can collect the same day. Payment is same day, by secure
+                  bank transfer, cleared before we leave.
                 </p>
               </RevealItem>
               <RevealItem>
@@ -818,9 +829,15 @@ export default function KentHubPage() {
           </RevealItem>
           <RevealItem>
             <p className="mt-5 text-2xl font-bold leading-snug tracking-tight text-white sm:text-3xl md:text-[2rem] lg:text-[2.35rem] lg:leading-[1.15]">
-              We are based in Medway, so a Kent seller is dealing with a
-              Kent-based buyer rather than an enquiry passed on to whoever
-              happens to be nearest.
+              We are based in{" "}
+              <Link
+                href="/sell-my-broken-jaguar-kent/medway"
+                className="underline underline-offset-2 hover:text-white/80"
+              >
+                Medway
+              </Link>
+              , so a Kent seller is dealing with a Kent-based buyer rather than
+              an enquiry passed on to whoever happens to be nearest.
             </p>
           </RevealItem>
           <RevealItem>

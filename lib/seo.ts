@@ -153,6 +153,10 @@ type LocationPageJsonLdOptions = {
   areaServed: string[];
   faqs: FaqItem[];
   breadcrumbName?: string;
+  parent?: {
+    name: string;
+    path: string;
+  };
 };
 
 export function locationPageJsonLd({
@@ -163,8 +167,41 @@ export function locationPageJsonLd({
   areaServed,
   faqs,
   breadcrumbName,
+  parent,
 }: LocationPageJsonLdOptions) {
   const url = absoluteUrl(path);
+
+  const breadcrumbs = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    ...(parent
+      ? [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: parent.name,
+            item: absoluteUrl(parent.path),
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: breadcrumbName ?? title,
+            item: url,
+          },
+        ]
+      : [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: breadcrumbName ?? title,
+            item: url,
+          },
+        ]),
+  ];
 
   return {
     "@context": "https://schema.org",
@@ -195,20 +232,7 @@ export function locationPageJsonLd({
       },
       {
         "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: SITE_URL,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: breadcrumbName ?? title,
-            item: url,
-          },
-        ],
+        itemListElement: breadcrumbs,
       },
       {
         "@type": "FAQPage",

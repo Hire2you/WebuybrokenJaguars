@@ -48,17 +48,17 @@ const STATS: {
   count: boolean;
   accent?: boolean;
 }[] = [
-  { figure: "100+", label: "jags", count: true },
+  { figure: "[NUMBER]+", label: "supercars bought", count: true },
   { figure: "20", label: "years in the trade", count: true },
   { figure: "Same day", label: "Payment", count: false },
   { figure: "Mainland UK", label: "Coverage", count: false },
 ];
 
 const EXPERTISE = [
-  { label: "Every model from XE to F-Type", icon: Car },
-  { label: "Common Jaguar faults understood", icon: Cog },
+  { label: "Every marque, from Ferrari to Bentley", icon: Car },
+  { label: "Common supercar faults understood, not guessed at", icon: Cog },
   { label: "Fair, knowledge-based pricing", icon: BadgePoundSterling },
-  { label: "Parts and salvage value factored in", icon: Package },
+  { label: "Parts and salvage value factored into every offer", icon: Package },
 ];
 
 const VALUES: { title: string; body: string; icon: LucideIcon }[] = [
@@ -238,14 +238,14 @@ export default function AboutPage() {
               &ldquo;
             </p>
             <p className="max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.15rem] lg:leading-[1.1]">
-              Every Jaguar has a value.{" "}
+              Every supercar has a value.{" "}
               <span className="font-numeral font-medium italic text-white">
                 Even a broken one.
               </span>
             </p>
             <RevealLine className="mt-8 h-px w-24 bg-white/40" />
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/75 md:text-lg">
-              We built this company on that simple idea.
+              We built this company on that idea.
             </p>
           </RevealFrom>
         </div>
@@ -275,18 +275,23 @@ export default function AboutPage() {
               </RevealItem>
               <RevealItem>
                 <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
-                  Too many good cars were being thrown away
+                  Too many good cars were being written off
                 </h2>
               </RevealItem>
               <RevealItem>
                 <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-slate md:text-lg">
-                  We started We Buy Broken Jaguars for one simple reason: too
-                  many good cars were being thrown away as worthless. A blown
-                  engine or a failed gearbox does not make a Jaguar scrap, it
-                  makes it our specialty. Backed by 20 years in the motor
-                  trade, we have grown into a trusted UK buyer for broken,
-                  damaged and non-running Jaguars, paying fair prices and making
-                  the whole process effortless.
+                  We started We Buy Broken Supercars because too many good cars
+                  were being treated as scrap. A blown engine or a failed
+                  gearbox does not make a Ferrari, a Lamborghini or a Porsche
+                  worthless. It makes it exactly the kind of car we specialise
+                  in.
+                </p>
+                <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-slate md:text-lg">
+                  Backed by 20 years in the motor trade, we have built a
+                  reputation as a straight-talking UK buyer for broken, damaged
+                  and non-running supercars. We pay a fair price based on what
+                  the car actually is, and we make the process take a phone call
+                  rather than a fortnight.
                 </p>
               </RevealItem>
             </RevealGroup>
@@ -362,7 +367,7 @@ export default function AboutPage() {
             <RevealGroup>
               <RevealItem>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-green">
-                  WHY JAGUAR SPECIALISTS
+                  WHY SPECIALISTS
                 </p>
               </RevealItem>
               <RevealItem>
@@ -372,12 +377,16 @@ export default function AboutPage() {
               </RevealItem>
               <RevealItem>
                 <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-slate md:text-lg">
-                  Because we deal in Jaguars every day, we know what yours is
-                  really worth. We understand the models and their common
-                  faults, from Ingenium timing chains to gearbox and electrical
-                  issues, and what the parts and salvage are actually worth.
-                  That knowledge means a fair, accurate offer, never the lowball
-                  a general scrap buyer would give you.
+                  Because we deal in supercars every day, not as a side line to
+                  vans and hatchbacks, we know what yours is actually worth. We
+                  understand the common failure points on a PDK gearbox, a ZF
+                  automatic or an air suspension system, and what the parts and
+                  salvage recovery are really worth once a fault is factored in.
+                </p>
+                <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-slate md:text-lg">
+                  That knowledge is what stands between you and a lowball offer.
+                  A general buyer sees a broken car and prices the risk. We see a
+                  Ferrari with a turbo fault and price the car.
                 </p>
               </RevealItem>
               <RevealItem>
@@ -425,7 +434,7 @@ export default function AboutPage() {
                   Six principles. No exceptions.
                 </h2>
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75 md:text-base">
-                  The way we buy every Jaguar, from the first valuation to
+                  The way we buy every supercar, from the first valuation to
                   same-day payment.
                 </p>
               </div>
@@ -485,13 +494,14 @@ export default function AboutPage() {
               </RevealItem>
               <RevealItem>
                 <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
-                  Buying Jaguars across mainland UK
+                  Buying supercars across mainland UK
                 </h2>
               </RevealItem>
               <RevealItem>
                 <p className="mt-5 max-w-prose text-base leading-relaxed text-white/65 md:text-lg">
-                  From the south coast to the Scottish border, we collect from
-                  anywhere in mainland UK, usually within 24 to 48 hours.
+                  From the south coast to the Scottish border, our own recovery
+                  collects from anywhere in mainland UK, usually within 24 to
+                  48 hours of an accepted offer.
                 </p>
               </RevealItem>
               <RevealItem>

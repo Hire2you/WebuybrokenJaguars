@@ -832,13 +832,20 @@ export default function KentHubPage() {
                 className="font-medium text-white underline underline-offset-2 hover:text-white/80"
               >
                 Essex
-              </Link>{" "}
-              and{" "}
+              </Link>
+              ,{" "}
               <Link
                 href="/sell-my-broken-jaguar-south-london"
                 className="font-medium text-white underline underline-offset-2 hover:text-white/80"
               >
                 South London
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/sell-my-broken-jaguar-surrey"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                Surrey
               </Link>
               . If the Jaguar is in Kent but you are not, that changes nothing.
               Send the reg, the mileage and the postcode, tell us what the car

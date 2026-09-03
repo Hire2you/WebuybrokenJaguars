@@ -189,3 +189,67 @@ export const SOUTH_LONDON_FAQS: FaqItem[] = [
       "Usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised — same-day belongs to the payment.",
   },
 ];
+
+export const SURREY_FAQS: FaqItem[] = [
+  {
+    question:
+      "Do you actually come out to Surrey, or do you pass it to a local yard?",
+    answer:
+      "We come ourselves. Our own recovery collects across Surrey and we are based in Medway, Kent — a straight run round the M25. The distance is our cost, not yours, and we do not pass your enquiry to a local yard.",
+  },
+  {
+    question:
+      "The main dealer has quoted more to fix it than the car is worth. Is it scrap now?",
+    answer:
+      "No. A repair quote prices the fault; it does not price the car. A complete Jaguar with one expensive failure still has a model, a mileage, a specification and a history, and all four go into what we pay. That gap between the repair estimate and the car's value is the reason this page exists.",
+  },
+  {
+    question:
+      "Does specification actually change the offer, or is that just marketing?",
+    answer:
+      "It changes it. Trim, engine, panoramic roof, upgraded audio, driver packs, wheel options and factory extras all affect what the car is worth to us, and so does service history. Put them on the form. It is the single easiest thing you can do to improve the number.",
+  },
+  {
+    question:
+      "My Jaguar has been in the garage on SORN for years. Will you still take it?",
+    answer:
+      "Yes. Long-stood cars are routine. Flat battery, seized brakes, square tyres, no MOT and no logbook are all fine, and the car does not need to start or move. We collect on a trailer from wherever it is standing.",
+  },
+  {
+    question: "My car is in Kingston / Sutton. Is that Surrey?",
+    answer:
+      "Historically, but not administratively — those are London boroughs now. It makes no difference to the offer or the collection. It only matters if ULEZ is part of why the car stopped being used, which our South London page covers.",
+  },
+  {
+    question: "I have an I-Pace with a battery fault. Is there any value in it?",
+    answer:
+      "Yes, and usually considerably more than owners are told. A failed or degraded traction battery makes the car uneconomic to repair at a dealer, which is a different thing from the car being worthless. Tell us what the diagnosis was and it goes into the figure.",
+  },
+  {
+    question: "I have lost the V5. Is that a problem?",
+    answer:
+      "No. A V5C is not required and neither is an MOT. We complete the change-of-keeper section as part of every purchase. You will still need to confirm the sale to DVLA yourself once we have collected the car.",
+  },
+  {
+    question: "It is a Cat S. Does that mean it is only worth scrap?",
+    answer:
+      "No. Cat S is recorded structural damage and Cat N is recorded non-structural damage. Both are valuation cases of their own, priced as recorded-damage cars rather than folded into end-of-life stock. Tell us the category on the form.",
+  },
+  {
+    question:
+      "Can you get a trailer up a gravel drive or through an electric gate?",
+    answer:
+      "Usually, but tell us first. Gravel, steep or long drives, single-track lanes, gated private roads and garages with doors that no longer open are all normal and all workable when we know before the driver sets off.",
+  },
+  {
+    question:
+      "When do I get paid, and does the money arrive before the car leaves?",
+    answer:
+      "Yes. Payment is made the same day by secure bank transfer, cleared before we leave with the car. There is no waiting for a cheque or a transfer sent after collection.",
+  },
+  {
+    question: "How soon after the offer would you collect from Surrey?",
+    answer:
+      "Usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised — same-day belongs to the payment.",
+  },
+];

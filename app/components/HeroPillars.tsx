@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 const BRAND_GREEN = "#0a3d2a";
 const PILLAR_ENTRANCE_STAGGER = 0.045;
 const PILLAR_ENTRANCE_DELAY = 0.08;
@@ -129,7 +131,9 @@ function PillarField({
           <g
             key={index}
             className="hero-pillar-rise"
-            style={{ "--pillar-delay": `${delay}s` }}
+            style={
+              { "--pillar-delay": `${delay}s` } as CSSProperties
+            }
           >
             <rect
               x={x}

@@ -1,7 +1,15 @@
 const BRAND_GREEN = "#0a3d2a";
+const PILLAR_ENTRANCE_STAGGER = 0.045;
+const PILLAR_ENTRANCE_DELAY = 0.08;
 const VIEW_WIDTH = 100;
 const VIEW_HEIGHT = 100;
 const TOP_CLEARANCE_MAX = 0.06;
+
+/** Shortest centre pillars first, then outward to the tallest edge pillars. */
+function getCenterOutDelay(index: number, count: number) {
+  const fromCenter = Math.min(index, count - 1 - index);
+  return PILLAR_ENTRANCE_DELAY + fromCenter * PILLAR_ENTRANCE_STAGGER;
+}
 
 function getPillarHeights(count: number, compact = false) {
   const centerIndex = (count - 1) / 2;
@@ -115,9 +123,14 @@ function PillarField({
           compact,
         );
         const x = index * pillarWidth;
+        const delay = getCenterOutDelay(index, pillarCount);
 
         return (
-          <g key={index}>
+          <g
+            key={index}
+            className="hero-pillar-rise"
+            style={{ "--pillar-delay": `${delay}s` }}
+          >
             <rect
               x={x}
               y={y}

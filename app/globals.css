@@ -91,6 +91,26 @@ body {
   height: 100%;
 }
 
+.hero-pillar-rise {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  opacity: 0;
+  animation: hero-pillar-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--pillar-delay, 0s);
+}
+
+@keyframes hero-pillar-rise {
+  from {
+    opacity: 0;
+    transform: translateY(11px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-road-asphalt {
   position: absolute;
   right: 0;
@@ -270,6 +290,12 @@ body {
 
   .hero-lane-dashes {
     animation: none;
+  }
+
+  .hero-pillar-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   .phone-shake {

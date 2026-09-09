@@ -7,7 +7,6 @@ import {
   useState,
   type FormEvent,
 } from "react";
-import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { VALUATION_CONDITIONS } from "@/lib/valuation";
 
@@ -498,7 +497,6 @@ function TrustPoints() {
 }
 
 export default function ValuationForm() {
-  const router = useRouter();
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const skipInitialFocus = useRef(true);
@@ -590,7 +588,7 @@ export default function ValuationForm() {
         return;
       }
 
-      router.push("/thank-you");
+      window.location.href = "/thank-you";
     } catch {
       setSubmitError("Unable to send your valuation. Please try again.");
     } finally {

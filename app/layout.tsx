@@ -42,6 +42,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.className} ${inter.variable} ${bodoni.variable} h-full`}
     >
+      <head>
+        <GoogleAds />
+      </head>
       <body className="min-h-full flex flex-col antialiased">
         <JsonLd data={organizationJsonLd()} />
         <ScrollRestoration />
@@ -49,7 +52,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppWidget />
-        <GoogleAds />
       </body>
     </html>
   );

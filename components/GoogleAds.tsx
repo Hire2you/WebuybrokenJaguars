@@ -1,18 +1,13 @@
-import Script from "next/script";
-
 const GOOGLE_ADS_ID = "AW-18422325987";
 
 export default function GoogleAds() {
   return (
     <>
-      <Script
-        id="google-ads-gtag"
+      <script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-        strategy="lazyOnload"
       />
-      <Script
-        id="google-ads-config"
-        strategy="lazyOnload"
+      <script
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

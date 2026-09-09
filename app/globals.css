@@ -85,7 +85,8 @@ body {
 }
 
 .hero-pillars-svg {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
 }
@@ -197,10 +198,6 @@ body {
 }
 
 @media (max-width: 640px) {
-  .hero-pillars {
-    top: 40%;
-  }
-
   .hero-road-asphalt {
     height: 35%;
   }

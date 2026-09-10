@@ -31,7 +31,7 @@ const PRIMARY_BRAND_MD =
 const PRIMARY_ACCENT_MD =
   "h-12 px-6 text-sm text-white bg-[#1f7a52] hover:bg-[#2a9d6a] focus-visible:outline-[#1f7a52]";
 const PRIMARY_BRAND_LG =
-  "h-14 text-lg text-white bg-brand-green hover:bg-brand-green-mid focus-visible:outline-brand-green-dark";
+  "h-14 px-8 text-base sm:text-lg text-white whitespace-nowrap bg-brand-green hover:bg-brand-green-mid focus-visible:outline-brand-green-dark";
 const INVERSE_MD =
   "h-12 px-6 text-sm font-bold bg-white text-brand-green shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] hover:bg-white focus-visible:outline-white";
 const LINK =

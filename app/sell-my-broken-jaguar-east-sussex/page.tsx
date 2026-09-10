@@ -309,8 +309,8 @@ export default function EastSussexHubPage() {
                 </p>
               </RevealItem>
               <RevealItem>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button href={VALUATION_HREF} showArrow size="lg">
+                <div className="mt-8 flex flex-col items-start gap-4">
+                  <Button href={VALUATION_HREF} showArrow size="lg" className="w-fit">
                     Get your free valuation
                   </Button>
                   <Link

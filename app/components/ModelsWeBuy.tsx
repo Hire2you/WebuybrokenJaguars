@@ -63,11 +63,16 @@ function modelAlt(name: string): string {
   return name === "Classic & Older" ? "Classic Jaguar" : `Jaguar ${name}`;
 }
 
+const MODEL_PAGE_HREFS: Partial<Record<string, string>> = {
+  XF: "/sell-my-jaguar-xf",
+};
+
 const catalog = models.map((model) => ({
   name: model.name,
   bodyStyle: model.bodyStyle,
   imageSrc: resolveModelSrc(model.src),
   alt: modelAlt(model.name),
+  href: MODEL_PAGE_HREFS[model.name],
 }));
 
 export default function ModelsWeBuy() {

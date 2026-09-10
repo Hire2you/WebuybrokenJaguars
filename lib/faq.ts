@@ -280,6 +280,47 @@ export const SOUTH_LONDON_FAQS: FaqItem[] = [
   },
 ];
 
+export const XF_FAQS: FaqItem[] = [
+  {
+    question:
+      "Can I sell a non-running Jaguar XF to a we-buy-any-car service?",
+    answer:
+      "Some general buyers won't quote on a car that doesn't run, and others expect you to deliver it to a branch, which is difficult when it won't move. We buy non-runners as standard and collect on a trailer.",
+  },
+  {
+    question: "My Jaguar XF is in limp mode. Is it still worth anything?",
+    answer:
+      "Yes. Limp mode usually points at the gearbox or the turbo, and it doesn't touch the value of the body, interior, wheels or everything else on the car. Tell us what it's doing and whether it moves at all.",
+  },
+  {
+    question: "Does high mileage kill the value of a broken Jaguar XF?",
+    answer:
+      "No. Plenty of XFs did company miles, and a well serviced high-mileage car is worth more than a neglected one with half the reading. History, spec and which fault it has move the figure further than the odometer.",
+  },
+  {
+    question:
+      "I've lost the V5C and my Jaguar XF has been SORN for three years. Can you still buy it?",
+    answer:
+      "Yes. No logbook, no MOT and no movement for years are all normal here, and a missing V5C doesn't reduce the offer. Just say so on the form so the paperwork is sorted before the driver sets off.",
+  },
+  {
+    question:
+      "Do I have to get my Jaguar XF to you, or do you collect it on a trailer?",
+    answer:
+      "We come to the car, and it goes on a trailer if it won't drive. Mention it if the XF is boxed in, shut in a garage or won't roll, so the driver turns up with the right kit.",
+  },
+  {
+    question: "Do you buy Cat S and Cat N Jaguar XFs?",
+    answer:
+      "Yes, along with salvage of any category and cars bought back after an insurance claim. Tell us the category and what the damage actually was, and the car is priced on what's left of it.",
+  },
+  {
+    question: "Do you collect Jaguar XFs in Scotland and Wales?",
+    answer:
+      "Yes. Collection is free anywhere in mainland UK, cities, towns and rural areas alike, and there's no distance charge taken off the offer.",
+  },
+];
+
 export const SURREY_FAQS: FaqItem[] = [
   {
     question:

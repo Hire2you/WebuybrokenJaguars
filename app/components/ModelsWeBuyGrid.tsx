@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { useReducedMotion } from "motion/react";
 import PlaceholderImage from "@/components/PlaceholderImage";
@@ -19,17 +20,21 @@ export type ModelCatalogItem = {
   bodyStyle: string;
   alt: string;
   imageSrc: string | null;
+  href?: string;
 };
 
 type ModelCardProps = ModelCatalogItem;
 
-function ModelCard({ name, bodyStyle, alt, imageSrc }: ModelCardProps) {
+function ModelCard({ name, bodyStyle, alt, imageSrc, href }: ModelCardProps) {
   const reducedMotion = useReducedMotion();
   const settleVariants = createSettleImageVariants(reducedMotion);
   const lineVariants = createLineVariants(reducedMotion);
 
-  return (
-    <div className="motion-card-hover group relative h-full overflow-hidden rounded-2xl bg-jet-black shadow-[0_14px_32px_-8px_rgba(10,10,10,0.22)] ring-1 ring-black/5 hover:shadow-[0_26px_44px_-10px_rgba(10,10,10,0.34)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+  const cardClassName =
+    "motion-card-hover group relative block h-full overflow-hidden rounded-2xl bg-jet-black shadow-[0_14px_32px_-8px_rgba(10,10,10,0.22)] ring-1 ring-black/5 hover:shadow-[0_26px_44px_-10px_rgba(10,10,10,0.34)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green";
+
+  const cardContent = (
+    <>
       <motion.div
         variants={settleVariants}
         className="absolute inset-0 overflow-hidden"
@@ -69,8 +74,18 @@ function ModelCard({ name, bodyStyle, alt, imageSrc }: ModelCardProps) {
           className="motion-accent-line mt-3 block h-px w-8 origin-left bg-[#1f7a52]"
         />
       </div>
-    </div>
+    </>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className={cardClassName}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return <div className={cardClassName}>{cardContent}</div>;
 }
 
 export default function ModelsWeBuyGrid({

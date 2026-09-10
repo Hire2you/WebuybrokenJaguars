@@ -188,7 +188,7 @@ export const COUNTIES: LocationCounty[] = [
     slug: "sell-my-broken-jaguar-surrey",
     title: "Sell My Broken Jaguar in Surrey",
     description:
-      "Broken, damaged and non-running Jaguars bought across Surrey. High-spec cars priced on model, options and fault by Jaguar specialists. Free collection on our own recovery, same-day payment.",
+      "Broken, damaged and non-running Jaguars bought across Surrey by Jaguar specialists, not a scrap buyer. Faults named rather than priced as weight. Free collection on our own recovery, same-day payment.",
     areaServed: [
       "Surrey",
       "Staines-upon-Thames",

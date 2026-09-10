@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -31,6 +32,7 @@ import {
   RevealGroup,
   RevealItem,
   RevealNumeral,
+  SettleImage,
 } from "@/components/motion";
 import { buildPageMetadata, locationPageJsonLd } from "@/lib/seo";
 
@@ -98,7 +100,7 @@ const EAST_SUSSEX_REGIONS: { title: string; body: string; places: string[] }[] =
     },
     {
       title: "Brighton and Hove",
-      body: "A broken car on a terraced street with no off-road parking, on a hill, sometimes on a permit bay — it goes on a trailer and the driver is used to awkward collections. Say if access is genuinely tight when you describe the car.",
+      body: "A broken car on a terraced street with no off-road parking, on a hill, sometimes on a permit bay. It goes on a trailer and the driver is used to awkward collections. Say if access is genuinely tight when you describe the car.",
       places: ["Brighton and Hove"],
     },
     {
@@ -122,7 +124,7 @@ const EAST_SUSSEX_REGIONS: { title: string; body: string; places: string[] }[] =
 const FAULTS: { title: string; body: string }[] = [
   {
     title: "Ingenium timing chain rattle",
-    body: "On the 2.0-litre petrol and diesel engines — the repair bill routinely outruns what the owner thinks the car is now worth, but the fault is a deduction from the figure, not a disqualification.",
+    body: "On the 2.0-litre petrol and diesel engines, the repair bill routinely outruns what the owner thinks the car is now worth, but the fault is a deduction from the figure, not a disqualification.",
   },
   {
     title: "Head gasket failure and coolant loss",
@@ -130,15 +132,15 @@ const FAULTS: { title: string; body: string }[] = [
   },
   {
     title: "ZF six- and eight-speed automatics",
-    body: "Limp mode or harsh shifting, and transfer box trouble on the 4WD cars — describe what the gearbox is doing on the form.",
+    body: "Limp mode or harsh shifting, and transfer box trouble on the 4WD cars. Describe what the gearbox is doing on the form.",
   },
   {
     title: "Air suspension collapse",
-    body: "Leaking struts or a failed compressor, where the car sits down on one corner — the point many owners are told it is finished.",
+    body: "Leaking struts or a failed compressor, where the car sits down on one corner, the point many owners are told it is finished.",
   },
   {
     title: "Electrical, ECU and infotainment faults",
-    body: "Body control module problems and black screens — the faults a general buyer discounts hardest because it cannot price them.",
+    body: "Body control module problems and black screens, the faults a general buyer discounts hardest because it cannot price them.",
   },
   {
     title: "Turbo failure",
@@ -153,7 +155,7 @@ const FAULTS: { title: string; body: string }[] = [
 const MODELS: { name: string; body: string }[] = [
   {
     name: "XE and XF",
-    body: "The saloons most owners are trying to move on — including Ingenium engines where the timing chain rattle has ended the relationship with the car.",
+    body: "The saloons most owners are trying to move on, including Ingenium engines where the timing chain rattle has ended the relationship with the car.",
   },
   {
     name: "XJ",
@@ -161,7 +163,7 @@ const MODELS: { name: string; body: string }[] = [
   },
   {
     name: "XK and F-Type",
-    body: "Grand tourer and sports car stock — a different conversation from a family SUV, and priced as such.",
+    body: "Grand tourer and sports car stock, a different conversation from a family SUV, and priced as such.",
   },
   {
     name: "F-Pace and E-Pace",
@@ -169,7 +171,7 @@ const MODELS: { name: string; body: string }[] = [
   },
   {
     name: "I-Pace",
-    body: "The electric SUV — still a Jaguar, still priced on the whole car rather than weighed in.",
+    body: "The electric SUV, still a Jaguar, still priced on the whole car rather than weighed in.",
   },
   {
     name: "S-Type, X-Type and older cars",
@@ -285,41 +287,60 @@ export default function EastSussexHubPage() {
         background="offwhite"
         className="border-b border-line !pb-14 !pt-16 md:!pb-20 md:!pt-24"
       >
-        <div className="mx-auto max-w-4xl text-center">
-          <RevealGroup trigger="mount">
-            <RevealItem>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-green">
-                East Sussex · Jaguar specialists
-              </p>
-            </RevealItem>
-            <RevealItem>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
-                Sell my broken Jaguar in East Sussex
-              </h1>
-            </RevealItem>
-            <RevealItem>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-brand-slate md:text-xl">
-                If your Jaguar will not start, will not shift, or has sat down on
-                one corner, you have probably already had one of two
-                conversations — a repair bill you will not pay, or an offer that
-                felt like scrap money for a car that still wears the leaper.
-              </p>
-            </RevealItem>
-            <RevealItem>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Button href={VALUATION_HREF} showArrow size="lg">
-                  Get your free valuation
-                </Button>
-                <Link
-                  href="/blog/how-to-sell-a-broken-jaguar"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green underline-offset-2 hover:underline"
-                >
-                  How to sell a broken Jaguar
-                  <ArrowRight size={16} aria-hidden />
-                </Link>
-              </div>
-            </RevealItem>
-          </RevealGroup>
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-14 xl:gap-16">
+          <RevealFrom direction="left" className="min-w-0">
+            <RevealGroup trigger="mount">
+              <RevealItem>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-green">
+                  East Sussex · Jaguar specialists
+                </p>
+              </RevealItem>
+              <RevealItem>
+                <h1 className="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
+                  Sell my broken Jaguar in East Sussex
+                </h1>
+              </RevealItem>
+              <RevealItem>
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-brand-slate md:text-xl">
+                  If your Jaguar will not start, will not shift, or has sat down on
+                  one corner, you have probably already had one of two
+                  conversations: a repair bill you will not pay, or an offer that
+                  felt like scrap money for a car that still wears the leaper.
+                </p>
+              </RevealItem>
+              <RevealItem>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Button href={VALUATION_HREF} showArrow size="lg">
+                    Get your free valuation
+                  </Button>
+                  <Link
+                    href="/blog/how-to-sell-a-broken-jaguar"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green underline-offset-2 hover:underline"
+                  >
+                    How to sell a broken Jaguar
+                    <ArrowRight size={16} aria-hidden />
+                  </Link>
+                </div>
+              </RevealItem>
+            </RevealGroup>
+          </RevealFrom>
+
+          <RevealFrom direction="right" className="min-w-0">
+            <SettleImage
+              trigger="mount"
+              className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-[0_22px_40px_-24px_rgba(10,61,42,0.35)] ring-1 ring-brand-green/10"
+            >
+              <Image
+                src="/about/jaguar-f-pace.webp"
+                alt="Jaguar F-Pace"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                quality={90}
+                className="object-cover object-center"
+              />
+            </SettleImage>
+          </RevealFrom>
         </div>
       </Section>
 
@@ -327,7 +348,7 @@ export default function EastSussexHubPage() {
         <RevealFrom direction="right" className="mx-auto max-w-3xl">
           <p className="text-base leading-relaxed text-brand-slate md:text-lg">
             Are Jaguars hard to sell when they are broken? Harder than a
-            hatchback — because the pool of buyers who can price one properly is
+            hatchback, because the pool of buyers who can price one properly is
             small. Who will buy yours? Not a yard that works out value by the
             tonne, and not a general buyer that priced your car from a
             registration and a postcode with no way to cost the fault. The buyer
@@ -342,7 +363,7 @@ export default function EastSussexHubPage() {
             >
               Kent
             </Link>
-            , where we are based in Medway — not by a yard down the road. The
+            , where we are based in Medway, not by a yard down the road. The
             transporter is ours, the distance is our cost, and it comes off
             nothing you are paid.
           </p>
@@ -367,8 +388,8 @@ export default function EastSussexHubPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-brand-slate md:text-lg">
               Collection is usually within 24 to 48 hours of an accepted offer,
-              often sooner. Same-day collection is not promised from Medway —
-              same-day belongs to the payment. There is no East Sussex depot and
+              often sooner. Same-day collection is not promised from Medway.
+              Same-day belongs to the payment. There is no East Sussex depot and
               no enquiry passed to a local partner.
             </p>
           </RevealFrom>
@@ -415,7 +436,7 @@ export default function EastSussexHubPage() {
 
           <RevealFrom direction="right">
             <p className="text-base leading-relaxed text-white/65 md:text-lg">
-              The search asks what a broken XF is worth in scrap terms — but
+              The search asks what a broken XF is worth in scrap terms, but
               scrap value is arithmetic on metal, and it is the wrong question
               for a car being bought as a car. A specialist buyer looks at what
               the whole vehicle is worth once the fault is accounted for. The
@@ -437,7 +458,7 @@ export default function EastSussexHubPage() {
         <RevealGroup className="mt-12 text-center">
           <RevealItem>
             <p className="font-numeral text-5xl font-medium italic tracking-tight text-white sm:text-6xl lg:text-7xl">
-              £1,200 – £10,000
+              £1,200 to £10,000
             </p>
           </RevealItem>
           <RevealItem>
@@ -471,7 +492,7 @@ export default function EastSussexHubPage() {
           <p className="mt-5 text-base leading-relaxed text-brand-slate md:text-lg">
             The offer stands on what you have described. It is liable to change
             only if faults or damage that were not mentioned turn up when the
-            car is collected — which is why being thorough protects the figure
+            car is collected, which is why being thorough protects the figure
             you were quoted. Say what the fault is doing, whether it has been
             standing, whether there is accident damage, whether a key is missing.
           </p>
@@ -552,7 +573,7 @@ export default function EastSussexHubPage() {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-brand-slate">
                 Same principle. Write-offs of all salvage categories are bought
-                — priced as recorded-damage cars, not folded into end-of-life
+                , priced as recorded-damage cars, not folded into end-of-life
                 stock.
               </p>
             </article>
@@ -570,7 +591,7 @@ export default function EastSussexHubPage() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-brand-slate">
             An F-Type and an X-Type are not the same conversation. Model and spec
-            are two of the things that move a car within the range — no figure
+            are two of the things that move a car within the range. No figure
             is attached to any individual model here because there is no honest
             per-model number to give.
           </p>
@@ -680,7 +701,7 @@ export default function EastSussexHubPage() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-brand-slate">
             A V5C is not required. Neither is an MOT, and the car does not need
-            to drive. A SORN car that has not moved in years is not awkward — it
+            to drive. A SORN car that has not moved in years is not awkward. It
             is expected.{" "}
             <Link
               href="/blog/dvla-paperwork-selling-broken-car"
@@ -713,12 +734,12 @@ export default function EastSussexHubPage() {
             A general we-buy-any-car service works from a registration and a
             postcode, with a fault it has no way to cost, so it protects itself
             by assuming the worst and the number comes back near the metal. That
-            is not sharp practice — it is what happens when the buyer does not
+            is not sharp practice. It is what happens when the buyer does not
             know the car.
           </p>
           <blockquote className="mt-8 border-l-[3px] border-brand-green pl-6">
             <p className="text-base italic leading-relaxed text-brand-slate md:text-lg">
-              &ldquo;I was surprised at how much they ended up offering —
+              &ldquo;I was surprised at how much they ended up offering.
               I&apos;d got quotes from non-Jaguar specialists that were nowhere
               near what these guys offered. Same-day payment as well.&rdquo;
             </p>
@@ -746,7 +767,7 @@ export default function EastSussexHubPage() {
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-brand-slate md:text-base">
                 Three competitors on the result set treat paperwork as a route
-                to a Certificate of Destruction — the wrong destination for a
+                to a Certificate of Destruction, the wrong destination for a
                 repairable Jaguar. Find out what yours is worth as a car before
                 you take a decision that cannot be undone.
               </p>

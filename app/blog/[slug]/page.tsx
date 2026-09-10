@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import FAQ from "@/app/components/FAQ";
 import JsonLd from "@/components/JsonLd";
-import { articleJsonLd, buildPageMetadata } from "@/lib/seo";
+import { blogPostJsonLd, buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -91,7 +92,7 @@ export async function generateMetadata({
   }
 
   return buildPageMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
     ogImage: post.coverImage,
@@ -112,13 +113,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <JsonLd
-        data={articleJsonLd({
+        data={blogPostJsonLd({
           title: post.title,
           description: post.description,
           slug: post.slug,
           datePublished: post.date,
           author: post.author,
           coverImage: post.coverImage,
+          faqs: post.faqs,
         })}
       />
       <Section
@@ -189,15 +191,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <article className="min-w-0">
             <MDXRemote source={post.content} components={mdxComponents} />
           </article>
-          <div className="mt-12 border-t border-line pt-10">
-            <Button href="/#valuation" showArrow>
-              Get your free valuation
-            </Button>
-          </div>
+          {!post.hideArticleValuationButton ? (
+            <div className="mt-12 border-t border-line pt-10">
+              <Button href="/#valuation" showArrow>
+                Get your free valuation
+              </Button>
+            </div>
+          ) : null}
         </RevealFrom>
       </Section>
 
-      <CTAband />
+      {post.faqs?.length ? (
+        <FAQ
+          faqs={post.faqs}
+          variant="minimal"
+          heading="Common questions about valuing a broken Jaguar"
+        />
+      ) : null}
+
+      {!post.hideArticleValuationButton ? <CTAband /> : null}
     </>
   );
 }

@@ -294,3 +294,64 @@ export function articleJsonLd({
     },
   };
 }
+
+type BlogPostJsonLdOptions = ArticleJsonLdOptions & {
+  faqs?: FaqItem[];
+};
+
+export function blogPostJsonLd({
+  title,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  author,
+  coverImage,
+  faqs,
+}: BlogPostJsonLdOptions) {
+  const url = absoluteUrl(`/blog/${slug}`);
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "BlogPosting",
+      headline: title,
+      description,
+      image: absoluteUrl(coverImage),
+      datePublished,
+      dateModified: dateModified ?? datePublished,
+      author: {
+        "@type": "Organization",
+        name: author,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        logo: {
+          "@type": "ImageObject",
+          url: absoluteUrl("/logo.webp"),
+        },
+      },
+      mainEntityOfPage: url,
+      about: title,
+    },
+  ];
+
+  if (faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+}

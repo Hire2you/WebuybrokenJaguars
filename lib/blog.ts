@@ -1,17 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import type { FaqItem } from "@/lib/faq";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
 export type BlogPostFrontmatter = {
   title: string;
+  metaTitle?: string;
   description: string;
   date: string;
   author: string;
   category: string;
   coverImage: string;
   readingTime?: string;
+  faqs?: FaqItem[];
+  hideArticleValuationButton?: boolean;
 };
 
 export type BlogPostMeta = BlogPostFrontmatter & {
@@ -45,12 +49,20 @@ function parsePostFile(filename: string): BlogPost {
   return {
     slug,
     title: String(data.title ?? ""),
+    metaTitle: data.metaTitle ? String(data.metaTitle) : undefined,
     description: String(data.description ?? ""),
     date: String(data.date ?? ""),
     author: String(data.author ?? ""),
     category: String(data.category ?? ""),
     coverImage: String(data.coverImage ?? ""),
     readingTime: data.readingTime ? String(data.readingTime) : undefined,
+    faqs: Array.isArray(data.faqs)
+      ? data.faqs.map((faq: { question?: string; answer?: string }) => ({
+          question: String(faq.question ?? ""),
+          answer: String(faq.answer ?? ""),
+        }))
+      : undefined,
+    hideArticleValuationButton: Boolean(data.hideArticleValuationButton),
     content,
   };
 }

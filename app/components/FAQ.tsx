@@ -19,6 +19,8 @@ const FAQS = SITE_FAQS;
 type FAQProps = {
   faqs?: FaqItem[];
   valuationHref?: string;
+  variant?: "default" | "minimal";
+  heading?: string;
 };
 
 type FaqItemProps = {
@@ -108,14 +110,24 @@ function FaqItem({
 export default function FAQ({
   faqs = FAQS,
   valuationHref = "/#valuation",
+  variant = "default",
+  heading = "Frequently asked questions",
 }: FAQProps) {
   const baseId = useId();
   const reducedMotion = useReducedMotion() ?? false;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const isMinimal = variant === "minimal";
 
   return (
     <Section id="faq" background="offwhite">
-      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-14 xl:gap-16">
+      <div
+        className={
+          isMinimal
+            ? "mx-auto max-w-3xl"
+            : "grid items-start gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-14 xl:gap-16"
+        }
+      >
+        {!isMinimal ? (
         <aside className="min-w-0 lg:sticky lg:top-28 lg:self-start">
           <RevealGroup>
             <RevealItem>
@@ -126,7 +138,7 @@ export default function FAQ({
 
             <RevealItem>
               <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-[2.65rem] lg:leading-[1.1]">
-                Frequently asked questions
+                {heading}
               </h2>
             </RevealItem>
 
@@ -188,8 +200,17 @@ export default function FAQ({
             </RevealItem>
           </RevealGroup>
         </aside>
+        ) : (
+          <RevealGroup>
+            <RevealItem>
+              <h2 className="text-2xl font-bold tracking-tight text-ink md:text-[1.65rem]">
+                {heading}
+              </h2>
+            </RevealItem>
+          </RevealGroup>
+        )}
 
-        <div className="min-w-0 overflow-hidden rounded-2xl border border-line bg-white">
+        <div className={`min-w-0 overflow-hidden rounded-2xl border border-line bg-white ${isMinimal ? "mt-8" : ""}`}>
           <RevealGroup>
               {faqs.map((item, index) => {
                 const isOpen = openIndex === index;

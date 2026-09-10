@@ -176,6 +176,53 @@ export const ESSEX_FAQS: FaqItem[] = [
   },
 ];
 
+export const EAST_SUSSEX_FAQS: FaqItem[] = [
+  {
+    question: "Are Jaguars hard to sell when they are broken?",
+    answer:
+      "Harder than a broken hatchback, yes — because the pool of buyers who can price one properly is small. That is why the buyer matters. A general service prices a marque it does not know from a reg and a postcode, and protects itself by assuming the worst. A Jaguar specialist prices the car.",
+  },
+  {
+    question:
+      "Do you actually come out to East Sussex, or is it a local partner?",
+    answer:
+      "We come ourselves. We are based in Medway, Kent, and East Sussex is covered by our own recovery — the distance is our cost, not yours. There is no local yard in the middle and no enquiry passed to whoever happens to be nearest.",
+  },
+  {
+    question:
+      "What is my broken Jaguar worth — is it just scrap value?",
+    answer:
+      "A scrap figure is the weight of the car times the price of metal that week — the wrong question for a complete Jaguar with one significant fault. Prices we have actually paid for a broken Jaguar run from £1,200 to £10,000, depending on the model, the mileage, the specification and which fault it has. Submit your reg for a number on your car.",
+  },
+  {
+    question: "Can the offer change after you have seen the car?",
+    answer:
+      "The offer stands on what you have described. It is liable to change only if faults or damage that were not mentioned turn up when the car is collected — which is why describing the fault fully on the form protects the figure you were quoted.",
+  },
+  {
+    question:
+      "I have no V5 logbook and the car has been SORN for years. Is that a problem?",
+    answer:
+      "No. A V5C is not required, neither is an MOT, and the car does not need to start or drive. Cars that have been stood for years on SORN are normal for us. We complete the change-of-keeper notification as part of every purchase. You will still need to confirm the sale to DVLA yourself once we have collected it.",
+  },
+  {
+    question:
+      "The car is on a Brighton street with no driveway and will not start. Can you still collect it?",
+    answer:
+      "Yes. It goes on a trailer from wherever it is standing — terraced streets, permit bays and hills included. Mention any tight access when you describe the car so we bring the right kit.",
+  },
+  {
+    question: "Do you buy Cat S and Cat N Jaguars in East Sussex?",
+    answer:
+      "Yes. Cat S is recorded structural damage and Cat N is recorded non-structural damage. A recorded category stays with the car and affects what it is worth, but it does not stop it being bought. Tell us the category and what work has been done.",
+  },
+  {
+    question: "How soon would you collect, and when do I get paid?",
+    answer:
+      "Collection is usually within 24 to 48 hours of you accepting the offer, often sooner. Same-day collection is not promised from Medway — same-day belongs to the payment. Payment is made the same day by secure bank transfer, cleared before we leave with the car.",
+  },
+];
+
 export const SOUTH_LONDON_FAQS: FaqItem[] = [
   {
     question:

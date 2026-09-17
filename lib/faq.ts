@@ -280,6 +280,196 @@ export const SOUTH_LONDON_FAQS: FaqItem[] = [
   },
 ];
 
+export const I_PACE_FAQS: FaqItem[] = [
+  {
+    question: "Who will buy my Jaguar I-Pace if it won't charge?",
+    answer:
+      "We will. A charging failure is one of the most common reasons owners contact us about this model, and we buy the car with the fault unresolved. You don't need to know whether it's the port, a module or the pack, and you don't need a repair quote to get an offer.",
+  },
+  {
+    question: "Why are used I-Paces so hard to sell privately?",
+    answer:
+      "Because a private buyer can't put a number on the risk. With a fault on the high-voltage or charging system, most independent garages won't quote on the work, so the buyer has no idea what they'd be taking on and walks away. The car isn't worthless, it's just unpriceable to anyone who doesn't buy these regularly.",
+  },
+  {
+    question: "Do you buy a Cat S or Cat N I-Pace?",
+    answer:
+      "Yes, all salvage categories, including Cat S and Cat N write-offs and cars still sitting with accident damage. Tell us the category and roughly what happened when you fill in the form.",
+  },
+  {
+    question: "Will you still buy an I-Pace with a failed high-voltage battery pack?",
+    answer:
+      "Yes. It's bought as it stands, with the warning messages on the dash and without anything being investigated first. We won't give you a figure for what a pack fix involves, because that isn't a number we publish, but the state of the pack is simply one of the things the offer accounts for.",
+  },
+  {
+    question: "How do you collect an I-Pace that won't move?",
+    answer:
+      "On a trailer. Collection is free anywhere in mainland UK and the car doesn't need to drive, start or charge. It can come off a driveway, out of a garage or from wherever it stopped, usually within 24 to 48 hours of the offer being accepted.",
+  },
+  {
+    question: "I've got no V5C for my I-Pace. Is that a problem?",
+    answer:
+      "No. We buy cars with no V5C logbook and no MOT. The change-of-keeper paperwork is completed as part of the purchase, and you confirm the sale to DVLA yourself online afterwards.",
+  },
+  {
+    question: "When do I get paid for my I-Pace?",
+    answer:
+      "The same day, by secure bank transfer, sent and cleared before the car leaves with our driver. There are no fees taken off the agreed figure.",
+  },
+];
+
+export const E_PACE_FAQS: FaqItem[] = [
+  {
+    question: "Who will buy my Jaguar E-Pace if it won't start?",
+    answer:
+      "We will, and a non-starter is ordinary work here rather than a special case. You don't need to find out why it won't start first. Describe what happens when you turn the key, whether it cranks, and any warning lights you saw before it stopped, and that's enough to price it. Collection comes to the car on a trailer, so nothing has to be jump-started or pushed anywhere.",
+  },
+  {
+    question: "Will you buy a Jaguar E-Pace with no V5C logbook?",
+    answer:
+      "Yes. A missing V5C doesn't stop the sale and it doesn't get treated as a defect in the offer. We'll confirm you're the registered keeper and take some ID when we collect, and the change-of-keeper notification is handled as part of the purchase. You should also confirm the sale yourself at gov.uk/sold-bought-vehicle, which takes about five minutes.",
+  },
+  {
+    question: "My Jaguar E-Pace has an Ingenium timing chain rattle. Is it worth anything?",
+    answer:
+      "Yes, and usually more than the owner expects. A chain rattle on cold start is one of the faults we're asked about most on this engine, and whether the chain has merely stretched or has already jumped makes a real difference to the figure, so say which if you know. Either way the rest of the car still counts towards what we pay.",
+  },
+  {
+    question: "My Jaguar E-Pace is a Cat S write-off. Does that change the offer?",
+    answer:
+      "It's part of the valuation rather than a reason to withdraw one. We buy Cat S, Cat N and salvage of all categories, so tell us the category and roughly what the damage was when you fill the form in. Declaring it up front means the figure you're quoted is the figure you're paid, with nothing renegotiated on the doorstep.",
+  },
+  {
+    question: "My Jaguar E-Pace hasn't moved for two years and has no MOT. Can you still collect it?",
+    answer:
+      "Yes. A car that's been standing, is on SORN and has no current MOT is collected on a trailer, so it doesn't need to be driveable, taxed or tested. Flat tyres, a dead battery and a stiff handbrake are all normal on a car that's sat that long. It helps to know how tight the access is, because that decides what we send.",
+  },
+  {
+    question: "Why are Jaguar E-Pace values so low, and does that mean a broken one is worthless?",
+    answer:
+      "Values are low because a premium small SUV depreciates hard, running costs deter buyers, and the known engine and gearbox issues thin out demand. That's a statement about clean cars on the used market, though. A broken one is a different transaction: we price it on what the whole car is worth rather than weighing it in, which is why our figure and a scrap figure aren't in the same territory.",
+  },
+  {
+    question: "How is the offer on my Jaguar E-Pace worked out, and does it cost anything to find out?",
+    answer:
+      "It's free and there's no obligation. The three-step form takes under a minute and asks for registration, mileage, postcode and a description of the fault. From there the figure reflects the trim and specification, mileage, service history, whether both keys are present, and which fault the car has. No fees, and nothing deducted for the valuation itself.",
+  },
+];
+
+export const XJ_FAQS: FaqItem[] = [
+  {
+    question: "My Jaguar XJ is sitting on the floor with air suspension failure. Will you still buy it?",
+    answer:
+      "Yes. Collapsed air struts and a failed compressor are among the most common reasons an XJ owner contacts us. The car doesn't need to be lifted, pumped up or repaired first, and we bring a trailer so it never has to move under its own suspension.",
+  },
+  {
+    question: "Where can I sell my Jaguar XJ if it won't start?",
+    answer:
+      "To us, direct, without moving it. Submit the reg, mileage and postcode with a short description of the fault and we'll make you an offer on the car as it stands, then collect it free from the driveway, garage or wherever it stopped.",
+  },
+  {
+    question: "What is a broken Jaguar XJ actually worth compared with scrapping it?",
+    answer:
+      "More than scrap, usually a good deal more, because we price the whole car rather than its weight. Where it lands depends on the year, mileage, specification, service history, keys, which fault it has and how much of the rest of the car is sound. Broken Jaguars we've bought have ranged from about £1,200 to £10,000 on exactly those factors.",
+  },
+  {
+    question: "I have no V5C for my XJ. Can I still sell it?",
+    answer:
+      "Yes. A V5 logbook isn't required, and neither is an MOT. Just say so when you describe the car so the paperwork side is set up correctly before the driver arrives.",
+  },
+  {
+    question: "My XJ is a Cat N. Does that rule it out?",
+    answer:
+      "No. Cat S, Cat N and other salvage categories are all bought, repaired damage or not. Declare the category on the form and the offer we make is the offer that stands at collection.",
+  },
+  {
+    question: "How quickly can you collect a Jaguar XJ that can't be driven?",
+    answer:
+      "Usually within 24 to 48 hours of the offer being accepted, often sooner. It goes on a trailer, so a non-runner is collected no differently from a car that drives, anywhere in mainland UK and at no cost to you.",
+  },
+  {
+    question: "My XJ hasn't moved in three years and is on SORN. Is it too far gone?",
+    answer:
+      "Not in our experience. Cars that have stood are normal for us, and a SORN declaration is no obstacle to selling. Flat tyres, a dead battery and seized brakes don't change how we collect it, and the offer is based on the car itself rather than on whether it will start.",
+  },
+];
+
+export const F_PACE_FAQS: FaqItem[] = [
+  {
+    question: "My Jaguar F-Pace won't start. Will you still buy it?",
+    answer:
+      "Yes. Non-runners and non-starters are a large part of what we buy. It doesn't need to turn over, move under its own power or have any MOT left, and we'll collect it on a trailer.",
+  },
+  {
+    question: "How much do you pay for a broken Jaguar F-Pace?",
+    answer:
+      "Prices paid for broken Jaguars have ranged from £1,200 to £10,000. Where your F-Pace sits depends on the engine, mileage, specification, service history, spare keys and which fault it has, so we price it individually.",
+  },
+  {
+    question: "The Ingenium timing chain has gone on my F-Pace. Is the car worth anything?",
+    answer:
+      "Yes, and usually more than owners expect once they've seen the repair quote. We buy F-Paces with chain rattle, chain failure and engine damage, and we price the whole car rather than treating it as scrap.",
+  },
+  {
+    question: "Do you buy Cat S and Cat N Jaguar F-Paces?",
+    answer:
+      "We do, along with unrecorded accident damage and salvage of all categories. Tell us the category when you enquire and we'll factor it into the offer rather than reopening it on collection day.",
+  },
+  {
+    question: "I can't find the V5C for my F-Pace. Can I still sell it?",
+    answer:
+      "Yes. A V5 logbook isn't required. We complete and submit the change-of-keeper paperwork as part of the purchase, and you confirm the sale yourself at gov.uk/sold-bought-vehicle in about five minutes.",
+  },
+  {
+    question: "The air suspension has collapsed on my F-Pace and it can't be moved. How would you collect it?",
+    answer:
+      "On a trailer, using our own recovery. A car sitting on its bump stops on one corner is a routine collection for us, and it costs you nothing wherever it's parked.",
+  },
+  {
+    question: "Do you collect a Jaguar F-Pace anywhere in mainland UK, or only certain areas?",
+    answer:
+      "Anywhere in mainland UK, free of charge: cities, towns and rural areas across England, Scotland and Wales. Collection is usually within 24 to 48 hours of the offer being accepted, often sooner.",
+  },
+];
+
+export const XE_MODEL_FAQS: FaqItem[] = [
+  {
+    question: "Who will buy my Jaguar XE if it won't start?",
+    answer:
+      "We will. Non-runners and non-starters are a normal part of what we buy, whether the XE cranks and won't fire, won't crank at all, or hasn't been woken up in years. You don't need a diagnosis to get an offer, just a description of what it's doing.",
+  },
+  {
+    question: "What is a broken or non-running Jaguar XE actually worth?",
+    answer:
+      "Broken Jaguars have earned their owners between £1,200 and £10,000 with us. Where a particular XE falls depends on the mileage, the specification and trim, and which fault it has, because we price the whole car and its good parts rather than paying scrap weight.",
+  },
+  {
+    question: "Will you buy a Cat S or Cat N Jaguar XE?",
+    answer:
+      "Yes. Cat S, Cat N and salvage XEs are bought as a matter of course, and so are cars still going through an insurance decision. Tell us the category when you enquire so the offer is right first time.",
+  },
+  {
+    question: "I have no V5C and my Jaguar XE is on SORN. Can I still sell it?",
+    answer:
+      "Yes to both. A V5 logbook isn't required, and a car declared off the road is fine. We complete and submit the change of keeper paperwork as part of the purchase, and you confirm the sale yourself at gov.uk/sold-bought-vehicle.",
+  },
+  {
+    question: "My Jaguar XE is in limp mode and the gearbox quote is more than the car is worth. Is it worth anything?",
+    answer:
+      "Usually more than people expect. An eight-speed that shifts harshly or won't come out of limp mode leaves the engine, interior, electronics and bodywork untouched, and those are what the offer is built on.",
+  },
+  {
+    question: "How does collection work if my Jaguar XE hasn't moved in years?",
+    answer:
+      "It goes on a trailer. Collection is free anywhere in mainland UK, the recovery is our own, and it's usually within 24 to 48 hours of you accepting the offer, often sooner. Flat tyres, a seized handbrake or a car wedged in behind another are all routine.",
+  },
+  {
+    question: "When do I get paid for the Jaguar XE?",
+    answer:
+      "On the day of collection. Payment goes by secure bank transfer and clears before the driver leaves with the car, so you're never left waiting on a promise once the XE is on the trailer.",
+  },
+];
+
 export const XF_FAQS: FaqItem[] = [
   {
     question:

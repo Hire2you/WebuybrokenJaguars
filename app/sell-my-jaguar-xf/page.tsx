@@ -569,6 +569,56 @@ export default function JaguarXfPage() {
         </RevealGroup>
       </Section>
 
+      <Section id="xf-models" background="green" compact>
+        <RevealGroup className="max-w-4xl">
+          <RevealItem>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/80">
+              Other Jaguar models
+            </p>
+          </RevealItem>
+          <RevealItem>
+            <p className="mt-5 text-lg leading-relaxed text-white/85 md:text-xl">
+              We buy every Jaguar model in any condition. Also see{" "}
+              <Link
+                href="/sell-my-jaguar-xe"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                XE
+              </Link>
+              ,{" "}
+              <Link
+                href="/sell-my-jaguar-xj"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                XJ
+              </Link>
+              ,{" "}
+              <Link
+                href="/sell-my-jaguar-f-pace"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                F-Pace
+              </Link>
+              ,{" "}
+              <Link
+                href="/sell-my-jaguar-e-pace"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                E-Pace
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/sell-my-jaguar-i-pace"
+                className="font-medium text-white underline underline-offset-2 hover:text-white/80"
+              >
+                I-Pace
+              </Link>
+              .
+            </p>
+          </RevealItem>
+        </RevealGroup>
+      </Section>
+
       <FAQ faqs={XF_FAQS} valuationHref={VALUATION_HREF} />
 
       <CTAband id="valuation" />

@@ -3,6 +3,7 @@ import { join } from "node:path";
 import Image from "next/image";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
+import { getModelPageHref } from "@/lib/models";
 import ModelsCtaPanel from "./ModelsCtaPanel";
 import ModelsWeBuyGrid, { ModelsSectionHairline } from "./ModelsWeBuyGrid";
 
@@ -63,16 +64,12 @@ function modelAlt(name: string): string {
   return name === "Classic & Older" ? "Classic Jaguar" : `Jaguar ${name}`;
 }
 
-const MODEL_PAGE_HREFS: Partial<Record<string, string>> = {
-  XF: "/sell-my-jaguar-xf",
-};
-
 const catalog = models.map((model) => ({
   name: model.name,
   bodyStyle: model.bodyStyle,
   imageSrc: resolveModelSrc(model.src),
   alt: modelAlt(model.name),
-  href: MODEL_PAGE_HREFS[model.name],
+  href: getModelPageHref(model.name),
 }));
 
 export default function ModelsWeBuy() {

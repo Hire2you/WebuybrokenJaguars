@@ -26,6 +26,7 @@ function town(name: string, slug?: string): LocationTown {
  * Town pages sit underneath at /{county.slug}/{town.slug}.
  */
 export const COUNTIES: LocationCounty[] = [
+  { name: "Buckinghamshire", slug: "sell-my-broken-jaguar-buckinghamshire", title: "Sell My Broken Jaguar in Buckinghamshire", description: "Non-running and faulty Jaguars bought across Buckinghamshire, including High Wycombe, Aylesbury and Milton Keynes, with free collection.", areaServed: ["Buckinghamshire", "High Wycombe", "Aylesbury", "Milton Keynes"], towns: [] },
   { name: "Hertfordshire", slug: "sell-my-broken-jaguar-hertfordshire", title: "Sell My Broken Jaguar in Hertfordshire", description: "Broken and damaged Jaguars bought across Hertfordshire with free collection, including Watford, St Albans and Stevenage.", areaServed: ["Hertfordshire", "Watford", "St Albans", "Hemel Hempstead", "Stevenage"], towns: [] },
   { name: "Berkshire", slug: "sell-my-broken-jaguar-berkshire", title: "Sell My Broken Jaguar in Berkshire", description: "Faulty and non-running Jaguars bought across Berkshire, with free collection in Reading, Slough, Newbury and surrounding towns.", areaServed: ["Berkshire", "Reading", "Slough", "Newbury", "Bracknell"], towns: [] },
   { name: "Hampshire", slug: "sell-my-broken-jaguar-hampshire", title: "Sell My Broken Jaguar in Hampshire", description: "Broken Jaguars bought across mainland Hampshire, including Southampton and Portsmouth, with free collection.", areaServed: ["Hampshire", "Southampton", "Portsmouth", "Winchester", "Basingstoke"], towns: [] },

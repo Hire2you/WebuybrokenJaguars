@@ -26,6 +26,7 @@ function town(name: string, slug?: string): LocationTown {
  * Town pages sit underneath at /{county.slug}/{town.slug}.
  */
 export const COUNTIES: LocationCounty[] = [
+  { name: "West Sussex", slug: "sell-my-broken-jaguar-west-sussex", title: "Sell My Broken Jaguar in West Sussex", description: "Broken and non-running Jaguars bought across West Sussex, with free collection and bank-transfer payment on collection.", areaServed: ["West Sussex", "Crawley", "Horsham", "Worthing", "Chichester"], towns: [] },
   {
     name: "Kent",
     slug: "sell-my-broken-jaguar-kent",

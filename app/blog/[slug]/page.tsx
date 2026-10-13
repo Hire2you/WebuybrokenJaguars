@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </RevealFrom>
       </Section>
 
-      <Section id="article-content" background="white">
+      <Section id="article-content" background="white" className="overflow-x-clip">
         <RevealFrom direction="right" className="mx-auto max-w-3xl">
           <article className="min-w-0">
             <MDXRemote source={post.content} components={mdxComponents} />

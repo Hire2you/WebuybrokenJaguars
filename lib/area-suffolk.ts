@@ -27,6 +27,6 @@ const page: AreaContent = {
     {question: "Do I have to buy another car from you?", answer: "No. This is a sale of your Jaguar, with no replacement purchase required. The valuation is free and carries no obligation to accept."},
     {question: "How and when will I be paid?", answer: "Payment is by secure bank transfer on collection day, cleared before your Jaguar leaves. Confirm the agreed amount before handover and keep the sale receipt and DVLA confirmation."}
   ],
-  nearby: [{label: "Essex", href: "/sell-my-broken-jaguar-essex"}, {label: "Hertfordshire", href: "/sell-my-broken-jaguar-hertfordshire"}]
+  nearby: [{label: "Essex", href: "/sell-my-broken-jaguar-essex"}, {label: "Hertfordshire", href: "/sell-my-broken-jaguar-hertfordshire"}, {label: "Cambridgeshire", href: "/sell-my-broken-jaguar-cambridgeshire"}]
 };
 export default page;

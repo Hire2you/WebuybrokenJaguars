@@ -10,6 +10,15 @@ export type VehicleModelPage = {
 
 export const MODEL_PAGES: VehicleModelPage[] = [
   {
+    name: "XK",
+    slug: "sell-my-jaguar-xk",
+    title: "Sell My Broken Jaguar XK, XK8 or XKR",
+    metaTitle: "Sell My Jaguar XK, XK8 or XKR | Broken Cars Bought",
+    description: "Sell a broken, damaged or non-running Jaguar XK, XK8 or XKR. Get a free valuation for your coupe or convertible, with free mainland UK collection.",
+    serviceType: "Buying broken Jaguar XK, XK8 and XKR cars",
+    areaServed: ["England", "Scotland", "Wales", "Mainland UK"],
+  },
+  {
     name: "F-Type",
     slug: "sell-my-jaguar-f-type",
     title: "Sell My Broken Jaguar F-Type",

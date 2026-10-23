@@ -34,7 +34,7 @@ export const F_TYPE_PAGE: ModelPageContent = {
       id: "f-type-other-faults", background: "white", title: "Gearbox, roof, electrical and accident damage",
       paragraphs: [
         "We consider F-Types with harsh gear changes, transmission warnings or no drive. Say whether the car will select a gear and move, and pass on any workshop findings. Our [Jaguar gearbox-fault guide](/blog/jaguar-gearbox-fault-repair-or-sell) covers the questions that help separate a confirmed repair from an estimate for investigation.",
-        "For a convertible, mention a roof that will not open, close or latch, along with any water ingress or damage to the hood. Photographs of its current position are useful. You do not need to repair the roof just to ask for a quote.",
+        "For a convertible, mention a roof that will not open, close or latch, along with any water ingress or damage to the hood. Photographs of its current position are useful. You do not need to repair the roof just to ask for a quote. Our [F-Type roof-fault guide](/blog/jaguar-f-type-roof-problems) explains the diagnosis and repair-or-sell questions.",
         "Accident damage, failed MOT items and unresolved electrical faults can also be assessed. Tell us about damaged wheels, deployed airbags, missing keys and any known insurance category. Include faults beyond the main problem so the offer reflects the car we will collect.",
       ],
     },

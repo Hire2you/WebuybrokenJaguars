@@ -280,7 +280,11 @@ export default function JaguarXfPage() {
                 <p className="mt-3 text-sm leading-relaxed text-brand-slate md:text-base">
                   Cost money for a different reason, because a body control module
                   playing up, a black infotainment screen or an ECU fault can run up
-                  diagnostic time before anyone has found the cause.
+                  diagnostic time before anyone has found the cause. Read our{" "}
+                  <Link href="/blog/jaguar-xf-battery-drain" className="font-medium text-brand-green underline underline-offset-4">
+                    XF battery-drain guide
+                  </Link>{" "}
+                  if repeated flat batteries are the problem.
                 </p>
               </article>
             </RevealItem>
